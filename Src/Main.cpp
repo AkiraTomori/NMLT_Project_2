@@ -3,28 +3,13 @@
 #include <string.h>
 #include <string>
 #include <conio.h>
+
 #include "Constants.h"
+#include "Support.h"
+#include "Book.h"
+#include "Reader.h"
+#include "BookLoan.h"
 using namespace std;
-
-struct Date
-{
-    int day;
-    int month;
-    int year;
-};
-
-struct Reader
-{
-    char readerName[100];
-    char readerId[20];
-    char readerCCCD[100];
-    char readerMail[100];
-    char readerAddress[100];
-    char readerGender[10];
-    Date readerBirthday;
-    Date readerCardDates;
-    Date readerExpiryDates;
-};
 
 struct Book
 {
@@ -49,8 +34,14 @@ struct BookLoan
     int loanBookCount;
 };
 
+
 int main()
 {
-
+    Reader readers[MAX_READERS];
+    int countReaders = 0;
+    Book books[MAX_BOOKS];
+    int countBook = 0;
+    BookLoan bookLoans[MAX_BOOK_LOANS];
+    int countBookLoan = 0;
     return 0;
 }
