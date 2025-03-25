@@ -50,7 +50,7 @@ Reader &Reader::operator=(const Reader &other)
     }
     return *this;
 }
-Reader::~Reader(){}
+Reader::~Reader() {}
 void displayReader(Reader readers[], int ReaderIndex)
 {
     cout << ReaderIndex + 1 << " - " << readers[ReaderIndex].readerName << " - " << readers[ReaderIndex].readerId << " - " << readers[ReaderIndex].readerCCCD << " - "
@@ -64,30 +64,32 @@ void addReader(Reader readers[], int &countReader)
         cout << "Khong the tiep tuc them doc gia moi vi danh sach da day.\n";
         return;
     }
+    Reader newReader;
     cout << "Nhap thong tin cua doc gia moi: \n";
     cout << "Ten: ";
     cin.ignore();
-    cin.getline(readers[countReader].readerName, 100);
+    cin.getline(newReader.readerName, 100);
     cout << "Ma doc gia: ";
-    cin.getline(readers[countReader].readerId, 20);
+    cin.getline(newReader.readerId, 20);
     cout << "CCCD: ";
-    cin.getline(readers[countReader].readerCCCD, 100);
+    cin.getline(newReader.readerCCCD, 100);
     cout << "Email: ";
-    cin.getline(readers[countReader].readerMail, 100);
+    cin.getline(newReader.readerMail, 100);
     cout << "Dia chi: ";
-    cin.getline(readers[countReader].readerAddress, 100);
+    cin.getline(newReader.readerAddress, 100);
     cout << "Gioi tinh: ";
-    cin.getline(readers[countReader].readerGender, 10);
+    cin.getline(newReader.readerGender, 10);
     cout << "Ngay thang nam sinh (theo dd/mm/yyyy): ";
-    cin >> readers[countReader].readerBirthday;
+    cin >> newReader.readerBirthday;
     cout << "Ngay lap the (theo dd/mm/yyyy): ";
-    cin >> readers[countReader].readerCardDates;
+    cin >> newReader.readerCardDates;
 
-    readers[countReader].readerExpiryDates = readers[countReader].readerCardDates;
-    readers[countReader].readerExpiryDates.addMonths(48);
+    newReader.readerExpiryDates = newReader.readerCardDates;
+    newReader.readerExpiryDates.addMonths(48);
 
-    cout << "Ngay het han cua doc gia: " << readers[countReader].readerExpiryDates << "\n";
+    cout << "Ngay het han cua doc gia: " << newReader.readerExpiryDates << "\n";
     cout << "Doc gia moi da duoc them thanh cong.\n";
+    readers[countReader] = newReader;
     countReader++;
 }
 void displayAllReaders(Reader readers[], int countReader)
