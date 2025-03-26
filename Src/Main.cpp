@@ -1,26 +1,7 @@
-#include <iostream>
-#include <stdio.h>
-#include <string.h>
-#include <string>
-#include <conio.h>
-
 #include "getData.h"
 #include "Book.h"
 #include "Reader.h"
 #include "BookLoan.h"
-using namespace std;
-
-struct Book
-{
-    char bookISBN[20];
-    char bookTitles[100];
-    char bookAuthor[100];
-    char bookPublisher[100];
-    char bookGenres[50];
-    int bookPublisherYear;
-    int bookPrices;
-    int bookQuantitites;
-};
 
 struct BookLoan
 {
@@ -43,6 +24,9 @@ int main()
     BookLoan bookLoans[MAX_BOOK_LOANS];
     int countBookLoan = 0;
 
+    int totalBooks = 0;
+    int remainBooks = 0;
+    
     readReader("Files/Reader.txt", readers, countReaders);
     displayAllReaders(readers, countReaders);
     return 0;
