@@ -29,5 +29,10 @@ int main()
     
     readReader("Files/Reader.txt", readers, countReaders);
     displayAllReaders(readers, countReaders);
+
+    readBook("Files/Book.txt", books, countBook, totalBooks, remainBooks);
+    viewBooks(books, countBook);
+    cout << "Tong so sach: " << totalBooks << "\n";
+    cout << "Tong so sach con lai: " << remainBooks << "\n";
     return 0;
 }

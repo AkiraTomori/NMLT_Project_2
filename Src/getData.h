@@ -5,9 +5,10 @@
 #include <string.h>
 #include <fstream>
 #include "Reader.h"
+#include "Book.h"
 #include "Constants.h"
 using namespace std;
 
 void readReader(const char *filename, Reader readers[], int &countReaders);
-
+void readBook(const char *filename, Book books[], int &countBook, int &totalBooks, int &remainBooks);
 #endif
