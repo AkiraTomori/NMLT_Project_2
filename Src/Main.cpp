@@ -1,8 +1,4 @@
-#include "getData.h"
-#include "Book.h"
-#include "Reader.h"
-#include "BookLoan.h"
-#include "Query.h"
+#include "MainMenu.h"
 
 int main()
 {
