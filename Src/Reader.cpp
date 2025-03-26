@@ -57,13 +57,8 @@ void displayReader(Reader readers[], int ReaderIndex)
          << readers[ReaderIndex].readerMail << " - " << readers[ReaderIndex].readerAddress << " - " << readers[ReaderIndex].readerGender << " - "
          << readers[ReaderIndex].readerBirthday << " - " << readers[ReaderIndex].readerCardDates << " - " << readers[ReaderIndex].readerExpiryDates << "\n";
 }
-void addReader(Reader readers[], int &countReader)
+Reader createReader()
 {
-    if (countReader >= MAX_READERS)
-    {
-        cout << "Khong the tiep tuc them doc gia moi vi danh sach da day.\n";
-        return;
-    }
     Reader newReader;
     cout << "Nhap thong tin cua doc gia moi: \n";
     cout << "Ten: ";
@@ -86,6 +81,16 @@ void addReader(Reader readers[], int &countReader)
 
     newReader.readerExpiryDates = newReader.readerCardDates;
     newReader.readerExpiryDates.addMonths(48);
+    return newReader;
+}
+void addReader(Reader readers[], int &countReader)
+{
+    if (countReader >= MAX_READERS)
+    {
+        cout << "Khong the tiep tuc them doc gia moi vi danh sach da day.\n";
+        return;
+    }
+    Reader newReader = createReader();
 
     cout << "Ngay het han cua doc gia: " << newReader.readerExpiryDates << "\n";
     cout << "Doc gia moi da duoc them thanh cong.\n";

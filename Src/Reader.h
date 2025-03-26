@@ -36,6 +36,7 @@ void editReader(Reader readers[], int countReader);
 void removeReader(Reader readers[], int &countReader);
 void findReaderBaseOnCCCD(Reader readers[], int countReader);
 void findReaderBaseOnName(Reader readers[], int countReader);
+Reader createReader();
 
 int FindReaderBasedOnCCCD(Reader readers[], int countReader, char cccd[]);
 int FindReaderBasedOnName(Reader readers[], int countReader, char name[]);
