@@ -105,12 +105,6 @@ Reader &Reader::operator=(const Reader &other)
     return *this;
 }
 Reader::~Reader() {}
-void displayReader(Reader readers[], int ReaderIndex)
-{
-    cout << ReaderIndex + 1 << " - " << readers[ReaderIndex].readerName << " - " << readers[ReaderIndex].readerId << " - " << readers[ReaderIndex].readerCCCD << " - "
-         << readers[ReaderIndex].readerMail << " - " << readers[ReaderIndex].readerAddress << " - " << readers[ReaderIndex].readerGender << " - "
-         << readers[ReaderIndex].readerBirthday << " - " << readers[ReaderIndex].readerCardDates << " - " << readers[ReaderIndex].readerExpiryDates << "\n";
-}
 
 Book::Book()
 {
