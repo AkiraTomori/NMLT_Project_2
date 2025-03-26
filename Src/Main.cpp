@@ -2,18 +2,7 @@
 #include "Book.h"
 #include "Reader.h"
 #include "BookLoan.h"
-
-struct BookLoan
-{
-    char loanReaderIds[20];
-    char loanBooks[MAX_BORROWED_BOOKS][20];
-    int loanBookQuantities[MAX_BORROWED_BOOKS];
-    Date loanDates;
-    Date returnDates;
-    Date returnDatesActual;
-    int loanBookCount;
-};
-
+#include "Query.h"
 
 int main()
 {
@@ -34,5 +23,11 @@ int main()
     viewBooks(books, countBook);
     cout << "Tong so sach: " << totalBooks << "\n";
     cout << "Tong so sach con lai: " << remainBooks << "\n";
+
+    cout << "Tong so sach sau thong ke: " << countTotalBooks(books, countBook) << "\n";
+    countBookByGenres(books, countBook);
+    cout << "Tong so doc gia: " << countTotalReaders(readers, countReaders) << "\n";
+    countReaderByGenders(readers, countReaders);
+    
     return 0;
 }

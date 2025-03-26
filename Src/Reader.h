@@ -1,33 +1,7 @@
 #ifndef _READER_H_
 #define _READER_H_
 
-#include <iostream>
-#include <string>
-#include <string.h>
-#include <stdio.h>
-#include "Constants.h"
-#include "Support.h"
-
-using namespace std;
-
-struct Reader
-{
-    char readerName[100];
-    char readerId[20];
-    char readerCCCD[100];
-    char readerMail[100];
-    char readerAddress[100];
-    char readerGender[10];
-    Date readerBirthday;
-    Date readerCardDates;
-    Date readerExpiryDates;
-
-    Reader();
-    Reader(char readerName[100], char readerId[20], char readerCCCD[100], char readerMail[100], char readerAddress[100], char readerGender[10], Date readerBirtday, Date readerCardDates, Date readerExpiryDates);
-    Reader(const Reader& other);
-    Reader &operator = (const Reader& other);
-    ~Reader();
-};
+#include "Object.h"
 
 void displayReader(Reader readers[], int ReaderIndex);
 void addReader(Reader readers[], int &countReader);

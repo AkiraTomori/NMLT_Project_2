@@ -1,54 +1,5 @@
 #include "Book.h"
 
-Book::Book()
-{
-    char newLine[11] = " ";
-    strcpy(this->bookISBN, newLine);
-    strcpy(this->bookTitles, newLine);
-    strcpy(this->bookAuthor, newLine);
-    strcpy(this->bookPublisher, newLine);
-    strcpy(this->bookGenres, newLine);
-    this->bookPublisherYear = 0;
-    this->bookPrices = 0;
-    this->bookQuantitites = 0;
-}
-Book::Book(char bookISBN[20], char bookTitles[100], char bookAuthor[100], char bookPulisher[100], char bookGenres[50], int bookPublisherYear, int bookPrices, int bookQuantites)
-{
-    strcpy(this->bookISBN, bookISBN);
-    strcpy(this->bookTitles, bookTitles);
-    strcpy(this->bookAuthor, bookAuthor);
-    strcpy(this->bookPublisher, bookPulisher);
-    strcpy(this->bookGenres, bookGenres);
-    this->bookPublisherYear = bookPublisherYear;
-    this->bookPrices = bookPrices;
-    this->bookQuantitites = bookQuantites;
-}
-Book::Book(const Book &other)
-{
-    strcpy(this->bookISBN, other.bookISBN);
-    strcpy(this->bookTitles, other.bookTitles);
-    strcpy(this->bookAuthor, other.bookAuthor);
-    strcpy(this->bookPublisher, other.bookPublisher);
-    strcpy(this->bookGenres, other.bookGenres);
-    this->bookPublisherYear = other.bookPublisherYear;
-    this->bookPrices = other.bookPrices;
-    this->bookQuantitites = other.bookQuantitites;
-}
-Book &Book::operator=(const Book &other)
-{
-    if (this != &other)
-    {
-        strcpy(this->bookISBN, other.bookISBN);
-        strcpy(this->bookTitles, other.bookTitles);
-        strcpy(this->bookAuthor, other.bookAuthor);
-        strcpy(this->bookPublisher, other.bookPublisher);
-        strcpy(this->bookGenres, other.bookGenres);
-        this->bookPublisherYear = other.bookPublisherYear;
-        this->bookPrices = other.bookPrices;
-        this->bookQuantitites = other.bookQuantitites;
-    }
-    return *this;
-}
 void displayBookInfo(Book books[], int bookIndex)
 {
     cout << bookIndex + 1 << " - " << books[bookIndex].bookISBN << " - " << books[bookIndex].bookTitles << " - " << books[bookIndex].bookAuthor << " - "
