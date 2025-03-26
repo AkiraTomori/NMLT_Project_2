@@ -33,7 +33,8 @@ void editBooks(Book books[], int countBooks, int &totalBooks, int &remainBooks);
 void removeBooks(Book books[], int &countBooks, int &totalBooks, int &remainBooks);
 void findBookBaseOnISBN(Book books[], int countBook);
 void findBookBaseOnTitle(Book books[], int countBook);
+Book createBook();
 
 int FindBookBasedOnISBN(Book books[], int countBook, char bookISBN[]);
-int FidnBookBasedOnTitle(Book books[], int countBook, char bookTitle[]);
+int FindBookBasedOnTitle(Book books[], int countBook, char bookTitle[]);
 #endif

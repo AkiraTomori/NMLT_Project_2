@@ -2,7 +2,7 @@
 
 Reader::Reader()
 {
-    char newLine[11] = "";
+    char newLine[11] = " ";
     strcpy(this->readerName, newLine);
     strcpy(this->readerId, newLine);
     strcpy(this->readerCCCD, newLine);
