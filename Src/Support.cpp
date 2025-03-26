@@ -40,7 +40,7 @@ istream &operator>>(istream &in, Date &other)
 }
 ostream &operator<<(ostream& out, const Date& other)
 {
-    out << other.day << "/" << other.month << "/" << other.year << "\n";
+    out << other.day << "/" << other.month << "/" << other.year;
     return out;
 }
 void Date::addMonths(int months)

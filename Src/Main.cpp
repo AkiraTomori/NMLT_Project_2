@@ -4,6 +4,7 @@
 #include <string>
 #include <conio.h>
 
+#include "getData.h"
 #include "Constants.h"
 #include "Support.h"
 #include "Book.h"
@@ -43,5 +44,8 @@ int main()
     int countBook = 0;
     BookLoan bookLoans[MAX_BOOK_LOANS];
     int countBookLoan = 0;
+
+    readReader("Files/Reader.txt", readers, countReaders);
+    displayAllReaders(readers, countReaders);
     return 0;
 }
