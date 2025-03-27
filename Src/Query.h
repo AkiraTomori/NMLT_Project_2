@@ -1,7 +1,7 @@
 #ifndef _QUERY_H_
 #define _QUERY_H_
 
-#include "Object.h"
+#include "Method.h"
 using namespace std;
 
 int countTotalBooks(Book books[], int countBook);
