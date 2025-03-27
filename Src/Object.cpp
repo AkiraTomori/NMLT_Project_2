@@ -43,6 +43,14 @@ ostream &operator<<(ostream &out, const Date &other)
     out << other.day << "/" << other.month << "/" << other.year;
     return out;
 }
+int Date::operator-(const Date& other)
+{
+    int day = (this->day - other.day);
+    int month = (this->month - other.month) * 30;
+    int year = (this->year - other.year) * 365;
+    int overDueDays = day + month + year;
+    return overDueDays;
+}
 void Date::addMonths(int months)
 {
     this->month += months;
@@ -51,6 +59,25 @@ void Date::addMonths(int months)
         this->month -= 12;
         this->year++;
     }
+}
+void Date::addOneDays()
+{
+    int maxDays = getDaysInMonth(month, year);
+    this->day++;
+    if (this->day > maxDays)
+    {
+        this->day = 1;
+        if (this->month > 12)
+        {
+            this->month = 1;
+            this->year++;
+        }
+    }
+}
+void Date::addNDays(int days)
+{
+    for (int i = 1; i <= days; i++)
+        addOneDays();
 }
 Date::~Date() {}
 

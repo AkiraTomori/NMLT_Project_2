@@ -20,8 +20,11 @@ struct Date
     ~Date();
     friend istream& operator >> (istream& in, Date& date);
     friend ostream& operator << (ostream& os, const Date &other);
+    int operator-(const Date& other);
 
     void addMonths(int months);
+    void addOneDays();
+    void addNDays(int days);
 };
 
 struct Reader
