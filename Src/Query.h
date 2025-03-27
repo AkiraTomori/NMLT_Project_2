@@ -2,7 +2,6 @@
 #define _QUERY_H_
 
 #include "Method.h"
-using namespace std;
 
 int countTotalBooks(Book books[], int countBook);
 void countBookByGenres(Book books[], int countBook);

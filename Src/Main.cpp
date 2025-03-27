@@ -25,5 +25,6 @@ int main()
     cout << "Tong so doc gia: " << countTotalReaders(readers, countReaders) << "\n";
     countReaderByGenders(readers, countReaders);
     
+    // showTime(readers, countReaders, books, countBook, totalBooks, remainBooks, bookLoans, countBookLoan);
     return 0;
 }
