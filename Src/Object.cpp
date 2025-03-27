@@ -38,7 +38,7 @@ istream &operator>>(istream &in, Date &other)
     in >> other.year;
     return in;
 }
-ostream &operator<<(ostream& out, const Date& other)
+ostream &operator<<(ostream &out, const Date &other)
 {
     out << other.day << "/" << other.month << "/" << other.year;
     return out;
@@ -52,7 +52,7 @@ void Date::addMonths(int months)
         this->year++;
     }
 }
-Date::~Date(){}
+Date::~Date() {}
 
 Reader::Reader()
 {
@@ -155,4 +155,60 @@ Book &Book::operator=(const Book &other)
     }
     return *this;
 }
-Book::~Book(){}
+Book::~Book() {}
+
+BookLoan::BookLoan()
+{
+    char newLine[11] = " ";
+    strcpy(this->loanReaderIds, newLine);
+    for (int i = 0; i < MAX_BORROWED_BOOKS; i++)
+    {
+        strcpy(this->loanBooks[i], newLine);
+        loanBookQuantities[i] = 0;
+    }
+    this->loanBookCount = 0;
+}
+BookLoan::BookLoan(char loanReaderIds[20], char loanBooks[MAX_BORROWED_BOOKS][20], int loanBookQuantites[MAX_BORROWED_BOOKS], Date loanDates, Date returnDates, Date returnDateActual, int loanBookCount)
+{
+    strcpy(this->loanReaderIds, loanReaderIds);
+    for (int i = 0; i < MAX_BORROWED_BOOKS; i++)
+    {
+        strcpy(this->loanBooks[i], loanBooks[i]);
+        this->loanBookQuantities[i] = loanBookQuantites[i];
+    }
+    this->loanDates = loanDates;
+    this->returnDates = returnDates;
+    this->returnDatesActual = returnDateActual;
+    this->loanBookCount = loanBookCount;
+}
+BookLoan::BookLoan(const BookLoan &other)
+{
+    strcpy(this->loanReaderIds, other.loanReaderIds);
+    for (int i = 0; i < MAX_BORROWED_BOOKS; i++)
+    {
+        strcpy(this->loanBooks[i], other.loanBooks[i]);
+        this->loanBookQuantities[i] = other.loanBookQuantities[i];
+    }
+    this->loanDates = other.loanDates;
+    this->returnDates = other.returnDates;
+    this->returnDatesActual = other.returnDatesActual;
+    this->loanBookCount = other.loanBookCount;
+}
+BookLoan &BookLoan::operator=(const BookLoan &other)
+{
+    if (this != &other)
+    {
+        strcpy(this->loanReaderIds, other.loanReaderIds);
+        for (int i = 0; i < MAX_BORROWED_BOOKS; i++)
+        {
+            strcpy(this->loanBooks[i], other.loanBooks[i]);
+            this->loanBookQuantities[i] = other.loanBookQuantities[i];
+        }
+        this->loanDates = other.loanDates;
+        this->returnDates = other.returnDates;
+        this->returnDatesActual = other.returnDatesActual;
+        this->loanBookCount = other.loanBookCount;
+    }
+    return *this;
+}
+BookLoan::~BookLoan(){}

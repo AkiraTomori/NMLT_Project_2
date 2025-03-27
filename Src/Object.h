@@ -70,5 +70,11 @@ struct BookLoan
     Date returnDates;
     Date returnDatesActual;
     int loanBookCount;
+
+    BookLoan();
+    BookLoan(char loanReaderIds[20], char loanBooks[MAX_BORROWED_BOOKS][20], int loanBookQuantites[MAX_BORROWED_BOOKS], Date loanDates, Date returnDates, Date returnDateActual, int loanBookCount);
+    BookLoan(const BookLoan& other);
+    BookLoan &operator=(const BookLoan& other);
+    ~BookLoan();
 };
 #endif
