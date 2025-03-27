@@ -1,0 +1,81 @@
+#include "Method.h"
+
+int FindReaderBasedOnCCCD(Reader readers[], int countReader, char cccd[])
+{
+    int index = -1;
+    for (int i = 0; i < countReader; i++)
+    {
+        if (strcmp(readers[i].readerCCCD, cccd) == 0)
+        {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+int FindReaderBasedOnName(Reader readers[], int countReader, char name[])
+{
+    int index = -1;
+    for (int i = 0; i < countReader; i++)
+    {
+        if (strcmp(readers[i].readerName, name) == 0)
+        {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+int FindReaderBasedOnId(Reader readers[], int countReader, char id[])
+{
+    int index = -1;
+    for (int i = 0; i < countReader; i++)
+    {
+        if (strcmp(readers[i].readerId, id) == 0)
+        {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+int FindBookBasedOnISBN(Book books[], int countBook, char bookISBN[])
+{
+    int index = -1;
+    for (int i = 0; i < countBook; i++)
+    {
+        if (strcmp(books[i].bookISBN, bookISBN) == 0)
+        {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+int FindBookBasedOnTitle(Book books[], int countBook, char bookTitle[])
+{
+    int index = -1;
+    for (int i = 0; i < countBook; i++)
+    {
+        if (strcmp(books[i].bookTitles, bookTitle) == 0)
+        {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+
+int FindLoanReaderBaseOnID(BookLoan bookloans[], int countLoan, char input[])
+{
+    int index = -1;
+    for (int i = 0; i < countLoan; i++)
+    {
+        if (strcmp(bookloans[i].loanReaderIds, input) == 0)
+        {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}

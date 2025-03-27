@@ -49,6 +49,7 @@ void addReader(Reader readers[], int &countReader)
 }
 void displayAllReaders(Reader readers[], int countReader)
 {
+    cout << "Danh sach doc gia hien co o trong thu vien: \n";
     header2();
     for (int i = 0; i < countReader; i++)
         displayReader(readers, i);
@@ -187,44 +188,4 @@ void findReaderBaseOnName(Reader readers[], int countReader)
         displayReader(readers, readerIndex);
     }
     printf("Khong tim thay doc gia can tim.\n");
-}
-
-int FindReaderBasedOnCCCD(Reader readers[], int countReader, char cccd[])
-{
-    int index = -1;
-    for (int i = 0; i < countReader; i++)
-    {
-        if (strcmp(readers[i].readerCCCD, cccd) == 0)
-        {
-            index = i;
-            break;
-        }
-    }
-    return index;
-}
-int FindReaderBasedOnName(Reader readers[], int countReader, char name[])
-{
-    int index = -1;
-    for (int i = 0; i < countReader; i++)
-    {
-        if (strcmp(readers[i].readerName, name) == 0)
-        {
-            index = i;
-            break;
-        }
-    }
-    return index;
-}
-int FindReaderBasedOnId(Reader readers[], int countReader, char id[])
-{
-    int index = -1;
-    for (int i = 0; i < countReader; i++)
-    {
-        if (strcmp(readers[i].readerId, id) == 0)
-        {
-            index = i;
-            break;
-        }
-    }
-    return index;
 }

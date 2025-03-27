@@ -7,6 +7,7 @@ void displayBookInfo(Book books[], int bookIndex)
 }
 void viewBooks(Book books[], int countBooks)
 {
+    cout << "Danh sach sach hien co o trong thu vien: \n";
     header2();
     for (int i = 0; i < countBooks; i++)
         displayBookInfo(books, i);
@@ -196,29 +197,3 @@ void findBookBaseOnTitle(Book books[], int countBook)
     return;
 }
 
-int FindBookBasedOnISBN(Book books[], int countBook, char bookISBN[])
-{
-    int index = -1;
-    for (int i = 0; i < countBook; i++)
-    {
-        if (strcmp(books[i].bookISBN, bookISBN) == 0)
-        {
-            index = i;
-            break;
-        }
-    }
-    return index;
-}
-int FindBookBasedOnTitle(Book books[], int countBook, char bookTitle[])
-{
-    int index = -1;
-    for (int i = 0; i < countBook; i++)
-    {
-        if (strcmp(books[i].bookTitles, bookTitle) == 0)
-        {
-            index = i;
-            break;
-        }
-    }
-    return index;
-}

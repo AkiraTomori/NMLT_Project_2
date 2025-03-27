@@ -160,16 +160,3 @@ void returnBooks(Reader readers[], int countReader, Book books[], int countBook,
     cout << "Tra sach thanh cong.\n";
 }
 
-int FindLoanReaderBaseOnID(BookLoan bookloans[], int countLoan, char input[])
-{
-    int index = -1;
-    for (int i = 0; i < countLoan; i++)
-    {
-        if (strcmp(bookloans[i].loanReaderIds, input) == 0)
-        {
-            index = i;
-            break;
-        }
-    }
-    return index;
-}
