@@ -7,6 +7,12 @@
 #include <string.h>
 using namespace std;
 
+
+struct ValidDate{
+    bool isValidDay(int day);
+    bool isValidMonth(int month);
+    bool isValidYear(int year);
+};
 /**
  * @brief Struct lưu trữ thông tin ngày tháng
  */
@@ -64,6 +70,7 @@ struct Date
      * @param days số ngày cộng thêm vào
      */
     void addNDays(int days);
+
 };
 
 struct Reader

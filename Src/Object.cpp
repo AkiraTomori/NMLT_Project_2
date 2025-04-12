@@ -1,5 +1,21 @@
 #include "Object.h"
-
+bool ValidDate::isValidDay(int day){
+    if (day < 1 || day > 31)
+        return false;
+    return true;
+}
+bool ValidDate::isValidMonth(int month){
+    if (month < 1 || month > 12){
+        return false;
+    }
+    return true;
+}
+bool ValidDate::isValidYear(int year){
+    if (year < 0){
+        return false;
+    }
+    return true;
+}
 Date::Date()
 {
     this->day = 1;
@@ -30,12 +46,40 @@ Date &Date::operator=(const Date &other)
 }
 istream &operator>>(istream &in, Date &other)
 {
-    cout << "Ngay: ";
-    in >> other.day;
-    cout << "Thang: ";
-    in >> other.month;
-    cout << "Nam: ";
-    in >> other.year;
+    ValidDate valid;
+    do{
+        cout << "Ngay: ";
+        in >> other.day;
+        if (!valid.isValidDay(other.day)){
+            cout << "Ngay nhap vao khong hop le. Xin hay nhap lai.\n";
+        }
+        else{
+            break;
+        }
+    } while (true);
+
+    do{
+        cout << "Thang: ";
+        in >> other.month;
+        if (!valid.isValidMonth(other.month)){
+            cout << "Thang nhap vao khong hop le. Xin hay nhap lai.\n";
+        }
+        else{
+            break;
+        }
+    } while (true);
+
+    do{
+        cout << "Nam: ";
+        in >> other.year;
+        if (!valid.isValidYear(other.year)){
+            cout << "Nam nhap vao khong hop le. Xin hay nhap lai.\n";
+        }
+        else{
+            break;
+        }
+    } while (true);
+
     return in;
 }
 ostream &operator<<(ostream &out, const Date &other)

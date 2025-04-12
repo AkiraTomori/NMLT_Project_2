@@ -22,7 +22,7 @@ Reader createReader(const Reader readers[], int countReader)
         cout << "Ma doc gia: ";
         cin.getline(newReader.readerId, 20);
         if (!isUniqueID(readers, countReader, newReader.readerId)){
-            cout << "Ma doc gia nay da ton tai.\n";
+            cout << "Ma doc gia nay da ton tai. Xin hay nhap lai\n";
         }
         else{
             break;
