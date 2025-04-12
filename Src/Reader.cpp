@@ -124,17 +124,32 @@ void editReader(Reader readers[], int countReader)
         int choice;
         do
         {
-            cout << "Chon thong tin can thay doi: \n";
-            cout << "1. Ho ten.\n";
-            cout << "2. Ma doc gia.\n";
-            cout << "3. CCCD.\n";
-            cout << "4. Email.\n";
-            cout << "5. Dia chi.\n";
-            cout << "6. Gioi tinh.\n";
-            cout << "7. Ngay sinh.\n";
-            cout << "0. Ve lai cua so quan ly doc gia.\n";
+            // cout << "Chon thong tin can thay doi: \n";
+            printBorder('=');
+            printCenteredLine("CHINH SUA THONG TIN DOC GIA");
+            printBorder('=');
+            printMenuLine("1. Ho ten.");
+            printMenuLine("2. Ma doc gia.");
+            printMenuLine("3. CCCD.");
+            printMenuLine("4. Email.");
+            printMenuLine("5. Dia chi.");
+            printMenuLine("6. Gioi tinh.");
+            printMenuLine("7. Ngay sinh.");
+            printMenuLine("0. Ve lai cua so quan ly doc gia.");
+            printBorder('=');
+            printPromptLine("Nhap vao thong tin can chinh sua: ");
+            printf(">> ");
+            scanf("%d", &choice);
+            // cout << "1. Ho ten.\n";
+            // cout << "2. Ma doc gia.\n";
+            // cout << "3. CCCD.\n";
+            // cout << "4. Email.\n";
+            // cout << "5. Dia chi.\n";
+            // cout << "6. Gioi tinh.\n";
+            // cout << "7. Ngay sinh.\n";
+            // cout << "0. Ve lai cua so quan ly doc gia.\n";
 
-            cin >> choice;
+            // cin >> choice;
             cin.ignore();
             switch (choice)
             {

@@ -2,6 +2,8 @@
 #define _SUPPORT_H_
 #include <iostream>
 #include <stdio.h>
+#include <string.h>
+#include <string>
 using namespace std;
 
 /**
@@ -43,4 +45,12 @@ void displayReaderHeader();
 void displayBookHeader();
 
 string formatISBN(const string& rawISBN);
+
+void printBorder(char ch);
+
+void printCenteredLine(const char text[]);
+
+void printMenuLine(const char text[]);
+
+void printPromptLine(const char text[]);
 #endif

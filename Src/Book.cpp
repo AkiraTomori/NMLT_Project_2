@@ -11,6 +11,7 @@ void displayBookInfo(Book books[], int bookIndex)
 }
 void viewBooks(Book books[], int countBooks)
 {
+    system("cls");
     cout << "Danh sach sach hien co o trong thu vien: \n";
     displayBookHeader();
     for (int i = 0; i < countBooks; i++)
@@ -99,17 +100,33 @@ void editBooks(Book books[], int countBooks, int &totalBooks, int &remainBooks)
         int choice;
         do
         {
-            cout << "Chon thong tin can thay doi: \n";
-            cout << "1. ISBN.\n";
-            cout << "2. Tua de sach.\n";
-            cout << "3. Tac gia.\n";
-            cout << "4. Nha xuat ban.\n";
-            cout << "5. The loai.\n";
-            cout << "6. Nam xuat ban.\n";
-            cout << "7. Gia sach.\n";
-            cout << "8. So luong sach.\n";
+            // cout << "Chon thong tin can thay doi: \n";
+            // cout << "1. ISBN.\n";
+            // cout << "2. Tua de sach.\n";
+            // cout << "3. Tac gia.\n";
+            // cout << "4. Nha xuat ban.\n";
+            // cout << "5. The loai.\n";
+            // cout << "6. Nam xuat ban.\n";
+            // cout << "7. Gia sach.\n";
+            // cout << "8. So luong sach.\n";
 
-            cin >> choice;
+            // cin >> choice;
+            printBorder('=');
+            printCenteredLine("CHINH SUA THONG TIN");
+            printBorder('=');
+            printMenuLine("1. ISBN.");
+            printMenuLine("2. Tua de sach.");
+            printMenuLine("3. Tac gia.");
+            printMenuLine("4. Nha xuat ban.");
+            printMenuLine("5. The loai.");
+            printMenuLine("6. Nam xuat ban.");
+            printMenuLine("7. Gia sach.");
+            printMenuLine("8. So luong sach.");
+            printMenuLine("0. Ve lai cua so quan ly sach.");
+            printBorder('=');
+            printPromptLine("Nhap vao thong tin can chinh sua: ");
+            printf(">> ");
+            scanf("%d", &choice);
             cin.ignore();
             switch (choice)
             {
@@ -147,6 +164,8 @@ void editBooks(Book books[], int countBooks, int &totalBooks, int &remainBooks)
                 break;
             case 0:
                 cout << "Roi cua so chinh sua sach.\n";
+                system("pause");
+                system("cls");
                 break;
             default:
                 cout << "Lua chon khong hop le.\n";
@@ -170,7 +189,7 @@ void editBooks(Book books[], int countBooks, int &totalBooks, int &remainBooks)
 void removeBooks(Book books[], int &countBooks, int &totalBooks, int &remainBooks)
 {
     system("cls");
-    cout << "Nhap vao isbn cua sach can tim kiem: ";
+    cout << "Nhap vao isbn cua sach can xoa: ";
     cin.ignore();
     char inputISBN[20];
     cin.getline(inputISBN, 20);
