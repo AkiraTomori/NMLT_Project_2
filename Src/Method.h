@@ -13,6 +13,7 @@ bool isUniqueCCCD(const Reader readers[], int countReader, char inputCCCD[]);
 // Book.h
 int FindBookBasedOnISBN(Book books[], int countBook, char bookISBN[]);
 int FindBookBasedOnTitle(Book books[], int countBook, char bookTitle[]);
+bool isUniqueISBN(const Book books[], int countBook, char inputISBN[]);
 
 // BookLoan.h
 int FindLoanReaderBaseOnID(BookLoan bookloans[], int countLoan, char input[]);

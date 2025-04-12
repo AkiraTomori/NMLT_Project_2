@@ -13,25 +13,42 @@ void viewBooks(Book books[], int countBooks)
         displayBookInfo(books, i);
     header2();
 }
-Book createBook()
+Book createBook(const Book books[], int countBook)
 {
     Book newBook;
     cout << "Nhap thong tin cua sach moi: \n";
     cin.ignore();
-    cout << "ISBN: ";
-    cin.getline(newBook.bookISBN, 20);
+    // cout << "ISBN: ";
+    // cin.getline(newBook.bookISBN, 20);
+    do{
+        cout << "ISBN: ";
+        cin.getline(newBook.bookISBN, 20);
+        if (isUniqueISBN(books, countBook, newBook.bookISBN)){
+            cout << "Ma ISBN nay da ton tai. Xin hay nhap lai.\n";
+        }
+        else{
+            break;
+        }
+    } while (true);
+
     cout << "Tua de: ";
     cin.getline(newBook.bookTitles, 100);
+    
     cout << "Tac gia: ";
     cin.getline(newBook.bookAuthor, 100);
+    
     cout << "Nha xuat ban: ";
     cin.getline(newBook.bookPublisher, 100);
+    
     cout << "The loai: ";
     cin.getline(newBook.bookGenres, 50);
+    
     cout << "Nam xuat ban: ";
     cin >> newBook.bookPublisherYear;
+    
     cout << "Gia sach: ";
     cin >> newBook.bookPrices;
+    
     cout << "So luong: ";
     cin >> newBook.bookQuantitites;
 
@@ -44,7 +61,7 @@ void addBooks(Book books[], int &countBooks, int &totalBooks, int &remainBooks)
         cout << "So luong sach da du.\n";
         return;
     }
-    Book newBook = createBook();
+    Book newBook = createBook(books, countBooks);
     totalBooks += newBook.bookQuantitites;
     remainBooks += newBook.bookQuantitites;
     books[countBooks] = newBook;

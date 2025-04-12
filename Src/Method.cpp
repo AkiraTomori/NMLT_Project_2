@@ -42,12 +42,12 @@ int FindReaderBasedOnId(Reader readers[], int countReader, char id[])
 
 bool isUniqueID(const Reader readers[], int countReader, char inputID[])
 {
-    bool isFound = true;
+    bool isFound = false;
     for (int i = 0; i < countReader; i++){
         Reader presentReader = readers[i];
         // Nếu tìm ra ID giống thì không được phép
         if (strcmp(presentReader.readerId, inputID) == 0){
-            isFound = false;
+            isFound = true;
             break;
         }
     }
@@ -56,18 +56,19 @@ bool isUniqueID(const Reader readers[], int countReader, char inputID[])
 
 bool isUniqueCCCD(const Reader readers[], int countReader, char inputCCCD[])
 {
-    bool isFound = true;
+    bool isFound = false;
     for (int i = 0; i < countReader; i++){
         Reader presentReader = readers[i];
         // Nếu tìm ra ID giống thì không được phép
         if (strcmp(presentReader.readerCCCD, inputCCCD) == 0){
-            isFound = false;
+            isFound = true;
             break;
         }
     }
     return isFound;
 }
 // Book.h
+
 int FindBookBasedOnISBN(Book books[], int countBook, char bookISBN[])
 {
     int index = -1;
@@ -81,6 +82,7 @@ int FindBookBasedOnISBN(Book books[], int countBook, char bookISBN[])
     }
     return index;
 }
+
 int FindBookBasedOnTitle(Book books[], int countBook, char bookTitle[])
 {
     int index = -1;
@@ -95,6 +97,17 @@ int FindBookBasedOnTitle(Book books[], int countBook, char bookTitle[])
     return index;
 }
 
+bool isUniqueISBN(const Book books[], int countBook, char inputISBN[]){
+    bool isFound = false;
+    for (int i = 0; i < countBook; i++){
+        Book presentBook = books[i];
+        if (strcmp(presentBook.bookISBN, inputISBN) == 0){
+            isFound = true;
+            break;
+        }
+    }
+    return isFound;
+}
 // BookLoan.h
 int FindLoanReaderBaseOnID(BookLoan bookloans[], int countLoan, char input[])
 {

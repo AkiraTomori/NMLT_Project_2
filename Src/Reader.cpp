@@ -21,7 +21,7 @@ Reader createReader(const Reader readers[], int countReader)
     do{
         cout << "Ma doc gia: ";
         cin.getline(newReader.readerId, 20);
-        if (!isUniqueID(readers, countReader, newReader.readerId)){
+        if (isUniqueID(readers, countReader, newReader.readerId)){
             cout << "Ma doc gia nay da ton tai. Xin hay nhap lai\n";
         }
         else{
@@ -34,7 +34,7 @@ Reader createReader(const Reader readers[], int countReader)
     do{
         cout << "CCCD: ";
         cin.getline(newReader.readerCCCD, 100);
-        if (!isUniqueCCCD(readers, countReader, newReader.readerCCCD)){
+        if (isUniqueCCCD(readers, countReader, newReader.readerCCCD)){
             cout << "Ma CCCD khong the trung. Xin hay nhap lai.\n";
         }
         else{
