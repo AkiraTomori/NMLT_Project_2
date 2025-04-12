@@ -31,9 +31,51 @@ int getDaysInMonth(int month, int year)
 }
 void header1()
 {
-    cout << "--------------------------------------------------------------------------------\n";
+    // cout << "--------------------------------------------------------------------------------\n";
+    cout << string(148, '=') << "\n";
 }
 void header2()
 {
     cout << "================================================================================\n";
+    // cout << string(148, '=') << "\n";
+}
+void header3(){
+    cout << string(148, '-') << "\n";    
+}
+
+void displayReaderHeader()
+{
+    header1();
+    printf("| %-4s | %-20s | %-10s | %-8s | %-20s | %-20s | %-5s | %-10s | %-10s | %-10s |\n",
+           "STT", "Ten doc gia", "ID", "CCCD", "Email", "Dia chi", "Phai", "Ngay sinh", "Ngay cap", "Het han");
+    header3();
+}
+
+void displayBookHeader()
+{
+    header1();
+    printf("| %-4s | %-20s | %-20s | %-20s | %-20s | %-15s | %-6s | %-7s | %-5s |\n",
+           "STT", "ISBN", "Tua de", "Tac gia", "NXB", "The loai", "Nam", "Gia", "SL");
+    header3();
+}
+
+string formatISBN(const string& rawISBN)
+{
+    if (rawISBN.length() != 13){
+        return "ISBN khong hop le.\n";
+    }
+
+    string formattedISBN;
+    
+    formattedISBN += rawISBN.substr(0, 3);
+    formattedISBN += "-";
+    formattedISBN += rawISBN.substr(3, 3);   // Group: 604
+    formattedISBN += "-";
+    formattedISBN += rawISBN.substr(6, 2);   // Publisher: 96
+    formattedISBN += "-";
+    formattedISBN += rawISBN.substr(8, 4);   // Title: 3817
+    formattedISBN += "-";
+    formattedISBN += rawISBN.substr(12, 1);
+
+    return formattedISBN;
 }

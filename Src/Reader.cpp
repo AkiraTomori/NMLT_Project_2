@@ -2,15 +2,23 @@
 
 void displayReader(Reader readers[], int ReaderIndex)
 {
-    cout << ReaderIndex + 1 << " - " << readers[ReaderIndex].readerName << " - " << readers[ReaderIndex].readerId << " - " << readers[ReaderIndex].readerCCCD << " - "
-         << readers[ReaderIndex].readerMail << " - " << readers[ReaderIndex].readerAddress << " - " << readers[ReaderIndex].readerGender << " - "
-         << readers[ReaderIndex].readerBirthday << " - " << readers[ReaderIndex].readerCardDates << " - " << readers[ReaderIndex].readerExpiryDates << "\n";
+    // cout << ReaderIndex + 1 << " - " << readers[ReaderIndex].readerName << " - " << readers[ReaderIndex].readerId << " - " << readers[ReaderIndex].readerCCCD << " - "
+    //      << readers[ReaderIndex].readerMail << " - " << readers[ReaderIndex].readerAddress << " - " << readers[ReaderIndex].readerGender << " - "
+    //      << readers[ReaderIndex].readerBirthday << " - " << readers[ReaderIndex].readerCardDates << " - " << readers[ReaderIndex].readerExpiryDates << "\n";
+    ostringstream birthday, cardDate, expiryDate;
+    birthday << readers[ReaderIndex].readerBirthday;
+    cardDate << readers[ReaderIndex].readerCardDates;
+    expiryDate << readers[ReaderIndex].readerExpiryDates;
+    header3();
+    printf("| %-4d | %-20s | %-10s | %-8s | %-20s | %-20s | %-5s | %-10s | %-10s | %-10s |\n",
+           ReaderIndex + 1, readers[ReaderIndex].readerName, readers[ReaderIndex].readerId, readers[ReaderIndex].readerCCCD, readers[ReaderIndex].readerMail, readers[ReaderIndex].readerAddress, readers[ReaderIndex].readerGender, birthday.str().c_str(), cardDate.str().c_str(), expiryDate.str().c_str());
+    header3();
 }
 
 Reader createReader(const Reader readers[], int countReader)
 {
     Reader newReader;
-    
+
     cout << "Nhap thong tin cua doc gia moi: \n";
     cout << "Ten: ";
     cin.ignore();
@@ -18,42 +26,48 @@ Reader createReader(const Reader readers[], int countReader)
 
     // cout << "Ma doc gia: ";
     // cin.getline(newReader.readerId, 20);
-    do{
+    do
+    {
         cout << "Ma doc gia: ";
         cin.getline(newReader.readerId, 20);
-        if (isUniqueID(readers, countReader, newReader.readerId)){
+        if (isUniqueID(readers, countReader, newReader.readerId))
+        {
             cout << "Ma doc gia nay da ton tai. Xin hay nhap lai\n";
         }
-        else{
+        else
+        {
             break;
         }
     } while (true);
 
     // cout << "CCCD: ";
     // cin.getline(newReader.readerCCCD, 100);
-    do{
+    do
+    {
         cout << "CCCD: ";
         cin.getline(newReader.readerCCCD, 100);
-        if (isUniqueCCCD(readers, countReader, newReader.readerCCCD)){
+        if (isUniqueCCCD(readers, countReader, newReader.readerCCCD))
+        {
             cout << "Ma CCCD khong the trung. Xin hay nhap lai.\n";
         }
-        else{
+        else
+        {
             break;
         }
-    } while(true);
+    } while (true);
 
     cout << "Email: ";
     cin.getline(newReader.readerMail, 100);
-    
+
     cout << "Dia chi: ";
     cin.getline(newReader.readerAddress, 100);
-    
+
     cout << "Gioi tinh: ";
     cin.getline(newReader.readerGender, 10);
 
     cout << "Ngay thang nam sinh (theo dd/mm/yyyy): \n";
     cin >> newReader.readerBirthday;
-    
+
     cout << "Ngay lap the (theo dd/mm/yyyy): \n";
     cin >> newReader.readerCardDates;
 
@@ -80,10 +94,10 @@ void addReader(Reader readers[], int &countReader)
 void displayAllReaders(Reader readers[], int countReader)
 {
     cout << "Danh sach doc gia hien co o trong thu vien: \n";
-    header2();
+    displayReaderHeader();
     for (int i = 0; i < countReader; i++)
         displayReader(readers, i);
-    header2();
+    header1();
 }
 
 void editReader(Reader readers[], int countReader)

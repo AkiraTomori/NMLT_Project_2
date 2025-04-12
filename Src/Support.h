@@ -35,4 +35,12 @@ void header1();
  * @brief Khung viền trang trí số 2
  */
 void header2();
+
+void header3();
+
+void displayReaderHeader();
+
+void displayBookHeader();
+
+string formatISBN(const string& rawISBN);
 #endif

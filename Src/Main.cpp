@@ -16,6 +16,11 @@ int main()
     // displayAllReaders(readers, countReaders);
 
     readBook("Files/Book.txt", books, countBook, totalBooks, remainBooks);
+    for (int i = 0; i < countBook; i++){
+        // Book presentBook = books[i];
+        string ISBNformat = formatISBN(string(books[i].bookISBN));
+        strcpy(books[i].bookISBN, ISBNformat.c_str());
+    }
     // viewBooks(books, countBook);
     // cout << "Tong so sach: " << totalBooks << "\n";
     // cout << "Tong so sach con lai: " << remainBooks << "\n";

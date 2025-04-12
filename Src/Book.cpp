@@ -2,16 +2,20 @@
 
 void displayBookInfo(Book books[], int bookIndex)
 {
-    cout << bookIndex + 1 << " - " << books[bookIndex].bookISBN << " - " << books[bookIndex].bookTitles << " - " << books[bookIndex].bookAuthor << " - "
-         << books[bookIndex].bookPublisher << " - " << books[bookIndex].bookGenres << " - " << books[bookIndex].bookPublisherYear << " - " << books[bookIndex].bookPrices << " - " << books[bookIndex].bookQuantitites << "\n";
+    // cout << bookIndex + 1 << " - " << books[bookIndex].bookISBN << " - " << books[bookIndex].bookTitles << " - " << books[bookIndex].bookAuthor << " - "
+    //      << books[bookIndex].bookPublisher << " - " << books[bookIndex].bookGenres << " - " << books[bookIndex].bookPublisherYear << " - " << books[bookIndex].bookPrices << " - " << books[bookIndex].bookQuantitites << "\n";
+    header3();
+    printf("| %-4d | %-20s | %-20s | %-20s | %-20s | %-15s | %-6d | %-7d | %-5d |\n",
+        bookIndex + 1, books[bookIndex].bookISBN, books[bookIndex].bookTitles, books[bookIndex].bookAuthor, books[bookIndex].bookPublisher, books[bookIndex].bookGenres, books[bookIndex].bookPublisherYear, books[bookIndex].bookPrices, books[bookIndex].bookQuantitites);
+    header3();
 }
 void viewBooks(Book books[], int countBooks)
 {
     cout << "Danh sach sach hien co o trong thu vien: \n";
-    header2();
+    displayBookHeader();
     for (int i = 0; i < countBooks; i++)
         displayBookInfo(books, i);
-    header2();
+    header1();
 }
 Book createBook(const Book books[], int countBook)
 {
@@ -20,35 +24,40 @@ Book createBook(const Book books[], int countBook)
     cin.ignore();
     // cout << "ISBN: ";
     // cin.getline(newBook.bookISBN, 20);
-    do{
+    do
+    {
         cout << "ISBN: ";
         cin.getline(newBook.bookISBN, 20);
-        if (isUniqueISBN(books, countBook, newBook.bookISBN)){
+        string ISBNformat = formatISBN(string(newBook.bookISBN));
+        strcpy(newBook.bookISBN, ISBNformat.c_str());
+        if (isUniqueISBN(books, countBook, newBook.bookISBN))
+        {
             cout << "Ma ISBN nay da ton tai. Xin hay nhap lai.\n";
         }
-        else{
+        else
+        {
             break;
         }
     } while (true);
 
     cout << "Tua de: ";
     cin.getline(newBook.bookTitles, 100);
-    
+
     cout << "Tac gia: ";
     cin.getline(newBook.bookAuthor, 100);
-    
+
     cout << "Nha xuat ban: ";
     cin.getline(newBook.bookPublisher, 100);
-    
+
     cout << "The loai: ";
     cin.getline(newBook.bookGenres, 50);
-    
+
     cout << "Nam xuat ban: ";
     cin >> newBook.bookPublisherYear;
-    
+
     cout << "Gia sach: ";
     cin >> newBook.bookPrices;
-    
+
     cout << "So luong: ";
     cin >> newBook.bookQuantitites;
 
@@ -213,4 +222,3 @@ void findBookBaseOnTitle(Book books[], int countBook)
     cout << "Khong tim thay sach theo yeu cau.\n";
     return;
 }
-

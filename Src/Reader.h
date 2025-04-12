@@ -2,6 +2,7 @@
 #define _READER_H_
 
 #include "Method.h"
+#include <sstream>
 
 void displayReader(Reader readers[], int ReaderIndex);
 void addReader(Reader readers[], int &countReader);
