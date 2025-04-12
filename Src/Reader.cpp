@@ -78,9 +78,12 @@ Reader createReader(const Reader readers[], int countReader)
 
 void addReader(Reader readers[], int &countReader)
 {
+    system("cls");
     if (countReader >= MAX_READERS)
     {
         cout << "Khong the tiep tuc them doc gia moi vi danh sach da day.\n";
+        system("pause");
+        system("cls");
         return;
     }
     Reader newReader = createReader(readers, countReader);
@@ -89,19 +92,25 @@ void addReader(Reader readers[], int &countReader)
     cout << "Doc gia moi da duoc them thanh cong.\n";
     readers[countReader] = newReader;
     countReader++;
+    system("pause");
+    system("cls");
 }
 
 void displayAllReaders(Reader readers[], int countReader)
 {
+    system("cls");
     cout << "Danh sach doc gia hien co o trong thu vien: \n";
     displayReaderHeader();
     for (int i = 0; i < countReader; i++)
         displayReader(readers, i);
     header1();
+    system("pause");
+    system("cls");
 }
 
 void editReader(Reader readers[], int countReader)
 {
+    system("cls");
     char inputReaderId[20];
     cout << "Nhap vao ma doc gia can chinh sua: ";
     cin.ignore();
@@ -160,6 +169,8 @@ void editReader(Reader readers[], int countReader)
                 break;
             case 0:
                 cout << "Roi cua so chinh sua doc gia.\n";
+                system("pause");
+                system("cls");
                 break;
             default:
                 cout << "Lua chon khong hop le.\n";
@@ -167,16 +178,21 @@ void editReader(Reader readers[], int countReader)
             }
             if (choice != 0)
             {
+                system("cls");
                 cout << "Thong tin sau khi chinh sua.\n";
                 displayReader(readers, readerIndex);
+                system("pause");
             }
         } while (choice != 0);
         return;
     }
     cout << "Khong tim thay doc gia can tim de thay doi.\n";
+    system("pause");
+    system("cls");
 }
 void removeReader(Reader readers[], int &countReader)
 {
+    system("cls");
     char inputId[20];
     cout << "Nhap vao id cua doc gia can xoa: ";
     cin.ignore();
@@ -193,6 +209,8 @@ void removeReader(Reader readers[], int &countReader)
         if (choice == 0)
         {
             cout << "Khong xoa doc gia, ve lai menu chinh cua doc gia.\n";
+            system("pause");
+            system("cls");
             return;
         }
         else
@@ -203,13 +221,18 @@ void removeReader(Reader readers[], int &countReader)
             }
             countReader--;
             cout << "Doc gia da duoc xoa thanh cong!.\n";
+            system("pause");
+            system("cls");
             return;
         }
     }
     cout << "Khong tim thay ten doc gia theo yeu cau.\n";
+    system("pause");
+    system("cls");
 }
 void findReaderBaseOnCCCD(Reader readers[], int countReader)
 {
+    system("cls");
     char inputCCCD[100];
     printf("Nhap vao CCCD cua doc gia muon tim kiem: ");
     cin.ignore();
@@ -218,11 +241,17 @@ void findReaderBaseOnCCCD(Reader readers[], int countReader)
     if (readerIndex != -1)
     {
         displayReader(readers, readerIndex);
+        system("pause");
+        system("cls");
+        return;
     }
     printf("Khong tim thay doc gia can tim.\n");
+    system("pause");
+    system("cls");
 }
 void findReaderBaseOnName(Reader readers[], int countReader)
 {
+    system("cls");
     char inputName[100];
     printf("Nhap vao ten cua doc gia can tim kiem: ");
     cin.ignore();
@@ -231,6 +260,11 @@ void findReaderBaseOnName(Reader readers[], int countReader)
     if (readerIndex != -1)
     {
         displayReader(readers, readerIndex);
+        system("pause");
+        system("cls");
+        return;
     }
     printf("Khong tim thay doc gia can tim.\n");
+    system("pause");
+    system("cls");
 }

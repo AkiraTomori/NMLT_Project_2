@@ -22,31 +22,37 @@ void showTime(Reader reader[], int &countReaders,
         {
         case 1:
         {
+            system("cls");
             ReaderMenu(reader, countReaders);
             break;
         }
         case 2:
         {
+            system("cls");
             BookMenu(books, countBooks, totalBooks, remainBooks);
             break;
         }
         case 3:
         {
+            system("cls");
             borrowBooksMenu(reader, countReaders, books, countBooks, remainBooks, bookloans, countLoan);
             break;
         }
         case 4:
         {
+            system("cls");
             returnBooksMenu(reader, countReaders, books, countBooks, remainBooks, bookloans, countLoan);
             break;
         }
         case 5:
         {
+            system("cls");
             QueryMenu(reader, countReaders, books, countBooks, bookloans, countLoan);
             break;
         }
         case 0:
         {
+            system("cls");
             printf("Thoat chuong trinh.\n");
             return;
         }
@@ -104,6 +110,7 @@ void ReaderMenu(Reader reader[], int countReader)
         }
         if (readerChoice == 0)
         {
+            system("cls");
             break;
         }
     }
@@ -153,6 +160,7 @@ void BookMenu(Book books[], int countBook, int &totalBooks, int &remainBooks)
         }
         if (bookChoice == 0)
         {
+            system("cls");
             break;
         }
     }

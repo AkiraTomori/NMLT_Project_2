@@ -65,9 +65,12 @@ Book createBook(const Book books[], int countBook)
 }
 void addBooks(Book books[], int &countBooks, int &totalBooks, int &remainBooks)
 {
+    system("cls");
     if (countBooks >= MAX_BOOKS)
     {
         cout << "So luong sach da du.\n";
+        system("pause");
+        system("cls");
         return;
     }
     Book newBook = createBook(books, countBooks);
@@ -76,10 +79,13 @@ void addBooks(Book books[], int &countBooks, int &totalBooks, int &remainBooks)
     books[countBooks] = newBook;
     countBooks++;
     cout << "Them sach thanh cong.\n";
+    system("pause");
+    system("cls");
     return;
 }
 void editBooks(Book books[], int countBooks, int &totalBooks, int &remainBooks)
 {
+    system("cls");
     char inputISBN[20];
     cin.ignore();
     cout << "Nhap vao ISBN cua sach can duoc chinh sua: ";
@@ -148,17 +154,22 @@ void editBooks(Book books[], int countBooks, int &totalBooks, int &remainBooks)
             }
             if (choice != 0)
             {
+                system("cls");
                 cout << "Thong tin sau khi chinh sua.\n";
                 displayBookInfo(books, bookIndex);
+                system("pause");
             }
 
         } while (choice != 0);
         return;
     }
     cout << "Khong tim thay sach can tim de thay doi.\n";
+    system("pause");
+    system("cls");
 }
 void removeBooks(Book books[], int &countBooks, int &totalBooks, int &remainBooks)
 {
+    system("cls");
     cout << "Nhap vao isbn cua sach can tim kiem: ";
     cin.ignore();
     char inputISBN[20];
@@ -175,6 +186,8 @@ void removeBooks(Book books[], int &countBooks, int &totalBooks, int &remainBook
         if (choice == 0)
         {
             cout << "Khong xoa sach, ve lai menu chinh cua quan ly sach.\n";
+            system("pause");
+            system("cls");
             return;
         }
         else
@@ -187,13 +200,18 @@ void removeBooks(Book books[], int &countBooks, int &totalBooks, int &remainBook
             }
             countBooks--;
             cout << "Sach da duoc xoa thanh cong!.\n";
+            system("pause");
+            system("cls");
             return;
         }
     }
     cout << "Khong tim thay sach theo yeu cau de chinh sua.\n";
+    system("pause");
+    system("cls");
 }
 void findBookBaseOnISBN(Book books[], int countBook)
 {
+    system("cls");
     char inputISBN[20];
     cout << "Nhap vao ISBN sach can tim kiem: ";
     cin.ignore();
@@ -203,12 +221,18 @@ void findBookBaseOnISBN(Book books[], int countBook)
     {
         cout << "Da tim thay sach theo yeu cau.\n";
         displayBookInfo(books, bookIndex);
+        system("pause");
+        system("cls");
+        return;
     }
     cout << "Khong tim thay sach theo yeu cau.\n";
+    system("pause");
+    system("cls");
     return;
 }
 void findBookBaseOnTitle(Book books[], int countBook)
 {
+    system("cls");
     char inputTitle[100];
     cout << "Nhap vao tua de sach can tim kiem: ";
     cin.ignore();
@@ -218,7 +242,12 @@ void findBookBaseOnTitle(Book books[], int countBook)
     {
         cout << "Da tim thay sach theo yeu cau.\n";
         displayBookInfo(books, bookIndex);
+        system("pause");
+        system("cls");
+        return;
     }
     cout << "Khong tim thay sach theo yeu cau.\n";
+    system("pause");
+    system("cls");
     return;
 }
