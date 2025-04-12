@@ -10,6 +10,6 @@ void editReader(Reader readers[], int countReader);
 void removeReader(Reader readers[], int &countReader);
 void findReaderBaseOnCCCD(Reader readers[], int countReader);
 void findReaderBaseOnName(Reader readers[], int countReader);
-Reader createReader();
+Reader createReader(const Reader readers[], int countReader);
 
 #endif

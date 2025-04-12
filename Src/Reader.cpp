@@ -7,32 +7,61 @@ void displayReader(Reader readers[], int ReaderIndex)
          << readers[ReaderIndex].readerBirthday << " - " << readers[ReaderIndex].readerCardDates << " - " << readers[ReaderIndex].readerExpiryDates << "\n";
 }
 
-Reader createReader()
+Reader createReader(const Reader readers[], int countReader)
 {
     Reader newReader;
+    
     cout << "Nhap thong tin cua doc gia moi: \n";
     cout << "Ten: ";
     cin.ignore();
     cin.getline(newReader.readerName, 100);
-    cout << "Ma doc gia: ";
-    cin.getline(newReader.readerId, 20);
-    cout << "CCCD: ";
-    cin.getline(newReader.readerCCCD, 100);
+
+    // cout << "Ma doc gia: ";
+    // cin.getline(newReader.readerId, 20);
+    do{
+        cout << "Ma doc gia: ";
+        cin.getline(newReader.readerId, 20);
+        if (!isUniqueID(readers, countReader, newReader.readerId)){
+            cout << "Ma doc gia nay da ton tai.\n";
+        }
+        else{
+            break;
+        }
+    } while (true);
+
+    // cout << "CCCD: ";
+    // cin.getline(newReader.readerCCCD, 100);
+    do{
+        cout << "CCCD: ";
+        cin.getline(newReader.readerCCCD, 100);
+        if (!isUniqueCCCD(readers, countReader, newReader.readerCCCD)){
+            cout << "Ma CCCD khong the trung. Xin hay nhap lai.\n";
+        }
+        else{
+            break;
+        }
+    } while(true);
+
     cout << "Email: ";
     cin.getline(newReader.readerMail, 100);
+    
     cout << "Dia chi: ";
     cin.getline(newReader.readerAddress, 100);
+    
     cout << "Gioi tinh: ";
     cin.getline(newReader.readerGender, 10);
-    cout << "Ngay thang nam sinh (theo dd/mm/yyyy): ";
+
+    cout << "Ngay thang nam sinh (theo dd/mm/yyyy): \n";
     cin >> newReader.readerBirthday;
-    cout << "Ngay lap the (theo dd/mm/yyyy): ";
+    
+    cout << "Ngay lap the (theo dd/mm/yyyy): \n";
     cin >> newReader.readerCardDates;
 
     newReader.readerExpiryDates = newReader.readerCardDates;
     newReader.readerExpiryDates.addMonths(48);
     return newReader;
 }
+
 void addReader(Reader readers[], int &countReader)
 {
     if (countReader >= MAX_READERS)
@@ -40,13 +69,14 @@ void addReader(Reader readers[], int &countReader)
         cout << "Khong the tiep tuc them doc gia moi vi danh sach da day.\n";
         return;
     }
-    Reader newReader = createReader();
+    Reader newReader = createReader(readers, countReader);
 
-    cout << "Ngay het han cua doc gia: " << newReader.readerExpiryDates << "\n";
+    // cout << "Ngay het han cua doc gia: " << newReader.readerExpiryDates << "\n";
     cout << "Doc gia moi da duoc them thanh cong.\n";
     readers[countReader] = newReader;
     countReader++;
 }
+
 void displayAllReaders(Reader readers[], int countReader)
 {
     cout << "Danh sach doc gia hien co o trong thu vien: \n";
@@ -55,6 +85,7 @@ void displayAllReaders(Reader readers[], int countReader)
         displayReader(readers, i);
     header2();
 }
+
 void editReader(Reader readers[], int countReader)
 {
     char inputReaderId[20];

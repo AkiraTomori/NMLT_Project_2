@@ -1,5 +1,5 @@
 #include "Method.h"
-
+// Reader.h
 int FindReaderBasedOnCCCD(Reader readers[], int countReader, char cccd[])
 {
     int index = -1;
@@ -39,6 +39,35 @@ int FindReaderBasedOnId(Reader readers[], int countReader, char id[])
     }
     return index;
 }
+
+bool isUniqueID(const Reader readers[], int countReader, char inputID[])
+{
+    bool isFound = true;
+    for (int i = 0; i < countReader; i++){
+        Reader presentReader = readers[i];
+        // Nếu tìm ra ID giống thì không được phép
+        if (strcmp(presentReader.readerId, inputID) == 0){
+            isFound = false;
+            break;
+        }
+    }
+    return isFound;
+}
+
+bool isUniqueCCCD(const Reader readers[], int countReader, char inputCCCD[])
+{
+    bool isFound = true;
+    for (int i = 0; i < countReader; i++){
+        Reader presentReader = readers[i];
+        // Nếu tìm ra ID giống thì không được phép
+        if (strcmp(presentReader.readerCCCD, inputCCCD) == 0){
+            isFound = false;
+            break;
+        }
+    }
+    return isFound;
+}
+// Book.h
 int FindBookBasedOnISBN(Book books[], int countBook, char bookISBN[])
 {
     int index = -1;
@@ -66,6 +95,7 @@ int FindBookBasedOnTitle(Book books[], int countBook, char bookTitle[])
     return index;
 }
 
+// BookLoan.h
 int FindLoanReaderBaseOnID(BookLoan bookloans[], int countLoan, char input[])
 {
     int index = -1;

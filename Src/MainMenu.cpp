@@ -6,7 +6,7 @@ void showTime(Reader reader[], int &countReaders,
 {
     while (true)
     {
-        cout << "Quan ly thu vien";
+        printf("\t\tQuan ly thu vien.\n");
         header2();
         cout << "1. Quan ly doc gia.\n";
         cout << "2. Quan ly sach.\n";
