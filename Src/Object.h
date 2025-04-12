@@ -7,7 +7,7 @@
 #include <string.h>
 using namespace std;
 
-
+// Interface dùng để kiểm tra lỗi
 struct ValidDate{
     bool isValidDay(int day);
     bool isValidMonth(int month);

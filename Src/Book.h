@@ -10,6 +10,6 @@ void editBooks(Book books[], int countBooks, int &totalBooks, int &remainBooks);
 void removeBooks(Book books[], int &countBooks, int &totalBooks, int &remainBooks);
 void findBookBaseOnISBN(Book books[], int countBook);
 void findBookBaseOnTitle(Book books[], int countBook);
-Book createBook(const Book books, int countBook);
+Book createBook(const Book books[], int countBook);
 
 #endif
