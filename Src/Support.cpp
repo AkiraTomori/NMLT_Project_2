@@ -107,3 +107,54 @@ void printPromptLine(const char text[])
     int len = strlen(text);
     printf("| %-*s |\n", 59, text);
 }
+
+void printBookQuantityHeader()
+{
+    printf("+------------------------------------------+\n");
+    printf("| %-30s | %-6s |\n", "TEN SACH", "S.LUONG");
+    printf("+------------------------------------------+\n");
+}
+
+void printBookQuantityRow(const char title[], int quantity)
+{
+    printf("| %-30s | %6d |\n", title, quantity);
+}
+
+void printBookQuantityFooter()
+{
+    printf("+------------------------------------------+\n");
+}
+
+void printGenreHeader() {
+    printf("+------------------------------+\n");
+    printf("| %-20s | %-6s |\n", "THE LOAI", "S.LUONG");
+    printf("+------------------------------+\n");
+}
+
+void printGenreRow(const char genre[], int quantity) {
+    printf("| %-20s | %6d |\n", genre, quantity);
+}
+
+void printGenreFooter() {
+    printf("+------------------------------+\n");
+}
+
+void printReaderCardStatHeader() {
+    printf("+-------------------------------------------------------------------------------+\n");
+    printf("| %-30s | %-10s | %-10s | %-10s |\n", "HO TEN", "NG.SINH", "NG.LAP", "HET HAN");
+    printf("+-------------------------------------------------------------------------------+\n");
+}
+
+void printReaderCardStatFooter() {
+    printf("+---------------------------------------------------------------------------------+\n");
+}
+
+void printGenderStatHeader() {
+    printf("+------------------------------------------+\n");
+    printf("| %-30s | %-6s |\n", "HO TEN", "PHAI");
+    printf("+------------------------------------------+\n");
+}
+
+void printGenderStatFooter() {
+    printf("+------------------------------------------+\n");
+}

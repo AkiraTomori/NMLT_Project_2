@@ -53,4 +53,25 @@ void printCenteredLine(const char text[]);
 void printMenuLine(const char text[]);
 
 void printPromptLine(const char text[]);
+
+void printBookQuantityHeader();
+
+void printBookQuantityRow(const char title[], int quantity);
+
+void printBookQuantityFooter();
+
+void printGenreHeader();
+
+void printGenreRow(const char genre[], int quantity);
+
+void printGenreFooter();
+
+void printReaderCardStatHeader();
+
+void printReaderCardStatFooter();
+
+void printGenderStatHeader();
+
+void printGenderStatFooter();
+
 #endif

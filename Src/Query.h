@@ -42,4 +42,11 @@ int countBorrowedBooks(BookLoan bookloans[], int countLoan);
  */
 void listOverdueReaders(BookLoan bookLoans[], int countLoan);
 
+void countTotalBooksMenu(Book books[], int countBook);
+
+void countBookByGenresMenu(Book books[], int countBook);
+
+void countReaderMenu(Reader readers[], int countReader);
+
+void countReaderByGenderMenu(Reader readers[], int countReader);
 #endif

@@ -34,10 +34,16 @@ void countBookByGenres(Book books[], int countBook)
         }
     }
     cout << "Thong ke so luong sach theo the loai: \n";
+    printGenreHeader();
     for (int i = 0; i < uniqueGenres; i++)
     {
-        cout << genres[i] << ": " << genreCount[i] << ".\n";
+        printGenreRow(genres[i], genreCount[i]);
     }
+    printGenreFooter();
+    // for (int i = 0; i < uniqueGenres; i++)
+    // {
+    //     cout << genres[i] << ": " << genreCount[i] << ".\n";
+    // }
 }
 int countTotalReaders(Reader readers[], int countReader)
 {
@@ -79,4 +85,54 @@ void listOverdueReaders(BookLoan bookLoans[], int countLoan)
             printf("Doc gia co ma doc gia %s bi tre hen %d ngay", bookLoans[i].loanReaderIds, overDueDays);
         }
     }
+}
+
+void countTotalBooksMenu(Book books[], int countBook)
+{
+    printf("Tong so luong sach trong thu vien: %d \n", countTotalBooks(books, countBook));
+    printBookQuantityHeader();
+    for (int i = 0; i < countBook; i++)
+    {
+        printBookQuantityRow(books[i].bookTitles, books[i].bookQuantitites);
+    }
+    printBookQuantityFooter();
+    system("pause");
+    system("cls");
+}
+
+void countBookByGenresMenu(Book books[], int countBook)
+{
+    countBookByGenres(books, countBook);
+}
+
+void countReaderMenu(Reader readers[], int countReader)
+{
+    printf("Tong so luong doc gia: %d \n", countTotalReaders(readers, countReader));
+    printReaderCardStatHeader();
+    for (int i = 0; i < countReader; i++)
+    {
+        char birth[11], card[11], exp[11];
+        Reader presentReader = readers[i];
+        sprintf(birth, "%02d/%02d/%02d", presentReader.readerBirthday.day, presentReader.readerBirthday.month, presentReader.readerBirthday.year);
+        sprintf(card, "%02d/%02d/%02d", presentReader.readerCardDates.day, presentReader.readerCardDates.month, presentReader.readerCardDates.year);
+        sprintf(exp, "%02d/%02d/%02d", presentReader.readerExpiryDates.day, presentReader.readerExpiryDates.month, presentReader.readerExpiryDates.year);
+
+        printf("| %-30s | %-10s | %-10s | %-10s |\n", presentReader.readerName, birth, card, exp);
+    }
+    printReaderCardStatFooter();
+    system("pause");
+    system("cls");
+}
+
+void countReaderByGenderMenu(Reader readers[], int countReader)
+{
+    countReaderByGenders(readers, countReader);
+    printGenderStatHeader();
+    for (int i = 0; i < countReader; i++)
+    {
+        printf("| %-30s | %-6s |\n", readers[i].readerName, readers[i].readerGender);
+    }
+    printGenderStatFooter();
+    system("pause");
+    system("cls");
 }

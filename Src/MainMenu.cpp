@@ -293,15 +293,22 @@ void QueryMenu(Reader reader[], int countReader, Book books[], int countBook, Bo
         case 1:
         {
             system("cls");
-            printf("Tong so luong sach trong thu vien: %d \n", countTotalBooks(books, countBook));
-            system("pause");
-            system("cls");
+            // printf("Tong so luong sach trong thu vien: %d \n", countTotalBooks(books, countBook));
+            // printBookQuantityHeader();
+            // for (int i = 0; i < countBook; i++){
+            //     printBookQuantityRow(books[i].bookTitles, books[i].bookQuantitites);
+            // }
+            // printBookQuantityFooter();
+            // system("pause");
+            // system("cls");
+            countTotalBooksMenu(books, countBook);
             break;
         }
         case 2:
         {
             system("cls");
-            countBookByGenres(books, countBook);
+            // countBookByGenres(books, countBook);
+            countBookByGenresMenu(books, countBook);
             system("pause");
             system("cls");
             break;
@@ -309,17 +316,36 @@ void QueryMenu(Reader reader[], int countReader, Book books[], int countBook, Bo
         case 3:
         {
             system("cls");
-            printf("Tong so luong doc gia: %d \n", countTotalReaders(reader, countReader));
-            system("pause");
-            system("cls");
+            // printf("Tong so luong doc gia: %d \n", countTotalReaders(reader, countReader));
+            // printReaderCardStatHeader();
+            // for (int i = 0; i < countReader; i++)
+            // {
+            //     char birth[11], card[11], exp[11];
+            //     Reader presentReader = reader[i];
+            //     sprintf(birth, "%02d/%02d/%02d", presentReader.readerBirthday.day, presentReader.readerBirthday.month, presentReader.readerBirthday.year);
+            //     sprintf(card, "%02d/%02d/%02d", presentReader.readerCardDates.day, presentReader.readerCardDates.month, presentReader.readerCardDates.year);
+            //     sprintf(exp, "%02d/%02d/%02d", presentReader.readerExpiryDates.day, presentReader.readerExpiryDates.month, presentReader.readerExpiryDates.year);
+
+            //     printf("| %-30s | %-10s | %-10s | %-10s |\n", presentReader.readerName, birth, card, exp);
+            // }
+            // printReaderCardStatFooter();
+            // system("pause");
+            // system("cls");
+            countReaderMenu(reader, countReader);
             break;
         }
         case 4:
         {
             system("cls");
-            countReaderByGenders(reader, countReader);
-            system("pause");
-            system("cls");
+            // countReaderByGenders(reader, countReader);
+            // printGenderStatHeader();
+            // for (int i = 0; i < countReader; i++){
+            //     printf("| %-30s | %-6s |\n", reader[i].readerName, reader[i].readerGender);
+            // }
+            // printGenderStatFooter();
+            // system("pause");
+            // system("cls");
+            countReaderByGenderMenu(reader, countReader);
             break;
         }
         case 5:
