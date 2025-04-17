@@ -11,6 +11,7 @@
  * @param countReaders Số lượng độc giả
  */
 void readReader(const char *filename, Reader readers[], int &countReaders);
+
 /**
  * @brief Đọc thông tin sách trong file Book.txt
  * @param filename tên file (Files/Book.txt)

@@ -7,10 +7,35 @@
 #include <string.h>
 using namespace std;
 
-// Interface dùng để kiểm tra lỗi
+/**
+ * @brief struct kiểm lỗi cho ngày được nhập vào
+ */
 struct ValidDate{
+    /**
+     * @brief Kiểm tra ngày có hợp lệ không 
+     * @param day ngày được nhập vào
+     * 
+     * @return trả về true nếu hợp lệ, false nếu không hợp lệ
+     * @details xét theo ngày dương lịch, 1 tháng có 30-31 ngày, kiểm tra ngày có nắm trong [1,31]
+     */
     bool isValidDay(int day);
+
+    /**
+     * @brief Kiểm tra tháng có hợp lệ không 
+     * @param month tháng được nhập vào
+     * 
+     * @return trả về true nếu hợp lệ, false nếu không hợp lệ
+     * @details 1 năm chỉ có 12 tháng, từ tháng 1 đến tháng 12
+     */
     bool isValidMonth(int month);
+
+    /**
+     * @brief Kiểm tra năm có hợp lệ không 
+     * @param year năm được nhập vào
+     * 
+     * @return trả về true nếu hợp lệ, false nếu không hợp lệ
+     * @details Chỉ xử lý ngoại lệ nếu nhập vào năm âm
+     */
     bool isValidYear(int year);
 };
 /**
@@ -71,8 +96,15 @@ struct Date
      */
     void addNDays(int days);
 
+    /**
+     * @brief trừ đi 1 ngày
+     */
     void minusOneDays();
 
+    /**
+     * @brief trừ đi n ngày
+     * @param days số ngày trừ đi
+     */
     void minusNDays(int days);
 };
 

@@ -11,25 +11,18 @@ int main()
 
     int totalBooks = 0;
     int remainBooks = 0;
-    
+    // Đọc dữ liệu độc giả
     readReader("Files/Reader.txt", readers, countReaders);
-    // displayAllReaders(readers, countReaders);
-
+    // Đọc dữ liệu sách
     readBook("Files/Book.txt", books, countBook, totalBooks, remainBooks);
     for (int i = 0; i < countBook; i++){
         // Book presentBook = books[i];
+        // Chuẩn hóa ISBN theo quốc tế
         string ISBNformat = formatISBN(string(books[i].bookISBN));
         strcpy(books[i].bookISBN, ISBNformat.c_str());
     }
-    // viewBooks(books, countBook);
-    // cout << "Tong so sach: " << totalBooks << "\n";
-    // cout << "Tong so sach con lai: " << remainBooks << "\n";
-
-    // cout << "Tong so sach sau thong ke: " << countTotalBooks(books, countBook) << "\n";
-    // countBookByGenres(books, countBook);
-    // cout << "Tong so doc gia: " << countTotalReaders(readers, countReaders) << "\n";
-    // countReaderByGenders(readers, countReaders);
     
+    // Thực thi chương trình chính
     showTime(readers, countReaders, books, countBook, totalBooks, remainBooks, bookLoans, countBookLoan);
     return 0;
 }

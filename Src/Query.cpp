@@ -101,8 +101,6 @@ void listOverdueReaders(Reader readers[], int countReader, BookLoan bookLoans[],
             sprintf(returnDates, "%02d/%02d/%02d", bookLoans[i].returnDates.day, bookLoans[i].returnDates.month, bookLoans[i].returnDates.year);
             sprintf(returnDatesActual, "%02d/%02d/%02d", bookLoans[i].returnDatesActual.day, bookLoans[i].returnDatesActual.month, bookLoans[i].returnDatesActual.year);
             printf("| %-20s | %-30s | %-15d | %-12s | %-12s | %-12s     |\n", bookLoans[i].loanReaderIds, readers[readerIndex].readerName, overDueDays, loanDates, returnDates, returnDatesActual);
-            // printf("| %-20s | %-30s | %-15s | %-12s | %-12s |\n",
-            //     "Ma doc gia", "Ten doc gia", "So ngay tre hen", "Ngay tra", "Ngay tra thuc te");
             bookLoans[i].loanDates = Date(1, 1, 2000);
             printf("+--------------------------------------------------------------------------------------------------------------------------+\n");
         }

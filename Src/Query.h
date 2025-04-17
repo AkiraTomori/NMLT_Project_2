@@ -42,17 +42,58 @@ int countBorrowedBooks(BookLoan bookloans[], int countLoan);
  */
 void listOverdueReaders(Reader readers[], int countReader, BookLoan bookLoans[], int countLoan);
 
+/**
+ * @brief Hiển thị tổng số lượng sách trong thư viện.
+ * @param books Mảng sách.
+ * @param countBook Số lượng sách.
+ */
 void countTotalBooksMenu(Book books[], int countBook);
 
+/**
+ * @brief Hiển thị số lượng sách theo từng thể loại.
+ * @param books Mảng sách.
+ * @param countBook Số lượng sách.
+ */
 void countBookByGenresMenu(Book books[], int countBook);
 
+/**
+ * @brief Hiển thị số lượng độc giả theo giới tính.
+ * @param readers Mảng độc giả.
+ * @param countReader Số lượng độc giả.
+ */
 void countReaderMenu(Reader readers[], int countReader);
 
+/**
+ * @brief Hiển thị số lượng độc giả theo giới tính.
+ * @param readers Mảng độc giả.
+ * @param countReader Số lượng độc giả.
+ */
 void countReaderByGenderMenu(Reader readers[], int countReader);
 
+/**
+ * @brief Hiển thị số lượng sách đang được mượn.
+ * @param readers Mảng độc giả.
+ * @param countReader Số lượng độc giả.
+ * @param bookloans Mảng phiếu mượn sách.
+ * @param countLoan Số lượng phiếu mượn.
+ */
 void countBorrowedBooksMenu(Reader readers[], int countReader, BookLoan bookloans[], int countLoan);
 
+/**
+ * @brief Hiển thị danh sách độc giả bị trễ hẹn trả sách.
+ * @param readers Mảng độc giả.
+ * @param countReader Số lượng độc giả.
+ * @param bookloans Mảng phiếu mượn sách.
+ * @param countLoan Số lượng phiếu mượn.
+ */
 void listOverdueReadersMenu(Reader readers[], int countReader, BookLoan bookloans[], int countLoan);
 
+/**
+ * @brief Hiển thị các độc giả đang có phiếu mượn sách chưa trả.
+ * @param readers Mảng độc giả.
+ * @param countReader Số lượng độc giả.
+ * @param bookloans Mảng phiếu mượn sách.
+ * @param countLoan Số lượng phiếu mượn.
+ */
 void displayActiveLoanReaders(Reader readers[], int countReader, BookLoan bookloans[], int countLoan);
 #endif
