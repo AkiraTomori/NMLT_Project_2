@@ -2,8 +2,6 @@
 
 void displayBookInfo(Book books[], int bookIndex)
 {
-    // cout << bookIndex + 1 << " - " << books[bookIndex].bookISBN << " - " << books[bookIndex].bookTitles << " - " << books[bookIndex].bookAuthor << " - "
-    //      << books[bookIndex].bookPublisher << " - " << books[bookIndex].bookGenres << " - " << books[bookIndex].bookPublisherYear << " - " << books[bookIndex].bookPrices << " - " << books[bookIndex].bookQuantitites << "\n";
     header3();
     printf("| %-4d | %-20s | %-20s | %-20s | %-20s | %-15s | %-6d | %-7d | %-5d |\n",
         bookIndex + 1, books[bookIndex].bookISBN, books[bookIndex].bookTitles, books[bookIndex].bookAuthor, books[bookIndex].bookPublisher, books[bookIndex].bookGenres, books[bookIndex].bookPublisherYear, books[bookIndex].bookPrices, books[bookIndex].bookQuantitites);
@@ -17,14 +15,14 @@ void viewBooks(Book books[], int countBooks)
     for (int i = 0; i < countBooks; i++)
         displayBookInfo(books, i);
     header1();
+    system("pause");
+    system("cls");
 }
 Book createBook(const Book books[], int countBook)
 {
     Book newBook;
     cout << "Nhap thong tin cua sach moi: \n";
     cin.ignore();
-    // cout << "ISBN: ";
-    // cin.getline(newBook.bookISBN, 20);
     do
     {
         cout << "ISBN: ";
@@ -100,17 +98,6 @@ void editBooks(Book books[], int countBooks, int &totalBooks, int &remainBooks)
         int choice;
         do
         {
-            // cout << "Chon thong tin can thay doi: \n";
-            // cout << "1. ISBN.\n";
-            // cout << "2. Tua de sach.\n";
-            // cout << "3. Tac gia.\n";
-            // cout << "4. Nha xuat ban.\n";
-            // cout << "5. The loai.\n";
-            // cout << "6. Nam xuat ban.\n";
-            // cout << "7. Gia sach.\n";
-            // cout << "8. So luong sach.\n";
-
-            // cin >> choice;
             printBorder('=');
             printCenteredLine("CHINH SUA THONG TIN");
             printBorder('=');
@@ -199,7 +186,7 @@ void removeBooks(Book books[], int &countBooks, int &totalBooks, int &remainBook
     {
         cout << "Da tim thay sach theo yeu cau.\n";
         displayBookInfo(books, bookIndex);
-        cout << "Ban co muon xoa sach nay khong (1. co, 0. khong) ?";
+        cout << "Ban co muon xoa sach nay khong (1. co, 0. khong) ? ";
         int choice;
         cin >> choice;
         if (choice == 0)

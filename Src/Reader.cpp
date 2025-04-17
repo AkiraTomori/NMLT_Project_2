@@ -2,9 +2,6 @@
 
 void displayReader(Reader readers[], int ReaderIndex)
 {
-    // cout << ReaderIndex + 1 << " - " << readers[ReaderIndex].readerName << " - " << readers[ReaderIndex].readerId << " - " << readers[ReaderIndex].readerCCCD << " - "
-    //      << readers[ReaderIndex].readerMail << " - " << readers[ReaderIndex].readerAddress << " - " << readers[ReaderIndex].readerGender << " - "
-    //      << readers[ReaderIndex].readerBirthday << " - " << readers[ReaderIndex].readerCardDates << " - " << readers[ReaderIndex].readerExpiryDates << "\n";
     ostringstream birthday, cardDate, expiryDate;
     birthday << readers[ReaderIndex].readerBirthday;
     cardDate << readers[ReaderIndex].readerCardDates;
@@ -24,8 +21,6 @@ Reader createReader(const Reader readers[], int countReader)
     cin.ignore();
     cin.getline(newReader.readerName, 100);
 
-    // cout << "Ma doc gia: ";
-    // cin.getline(newReader.readerId, 20);
     do
     {
         cout << "Ma doc gia: ";
@@ -40,8 +35,6 @@ Reader createReader(const Reader readers[], int countReader)
         }
     } while (true);
 
-    // cout << "CCCD: ";
-    // cin.getline(newReader.readerCCCD, 100);
     do
     {
         cout << "CCCD: ";
@@ -88,7 +81,6 @@ void addReader(Reader readers[], int &countReader)
     }
     Reader newReader = createReader(readers, countReader);
 
-    // cout << "Ngay het han cua doc gia: " << newReader.readerExpiryDates << "\n";
     cout << "Doc gia moi da duoc them thanh cong.\n";
     readers[countReader] = newReader;
     countReader++;
@@ -124,7 +116,6 @@ void editReader(Reader readers[], int countReader)
         int choice;
         do
         {
-            // cout << "Chon thong tin can thay doi: \n";
             printBorder('=');
             printCenteredLine("CHINH SUA THONG TIN DOC GIA");
             printBorder('=');
@@ -140,16 +131,7 @@ void editReader(Reader readers[], int countReader)
             printPromptLine("Nhap vao thong tin can chinh sua: ");
             printf(">> ");
             scanf("%d", &choice);
-            // cout << "1. Ho ten.\n";
-            // cout << "2. Ma doc gia.\n";
-            // cout << "3. CCCD.\n";
-            // cout << "4. Email.\n";
-            // cout << "5. Dia chi.\n";
-            // cout << "6. Gioi tinh.\n";
-            // cout << "7. Ngay sinh.\n";
-            // cout << "0. Ve lai cua so quan ly doc gia.\n";
 
-            // cin >> choice;
             cin.ignore();
             switch (choice)
             {
@@ -178,8 +160,8 @@ void editReader(Reader readers[], int countReader)
                 cin.getline(readers[readerIndex].readerGender, 10);
                 break;
             case 7:
-                cout << "Chinh sua ngay sinh: ";
-                cout << "Nhap ngay sinh theo dinh dang dd/mm/yyyy: ";
+                cout << "Chinh sua ngay sinh: \n";
+                cout << "Nhap ngay sinh theo dinh dang dd/mm/yyyy: \n";
                 cin >> readers[readerIndex].readerBirthday;
                 break;
             case 0:
