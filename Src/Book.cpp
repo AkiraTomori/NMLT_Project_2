@@ -114,7 +114,7 @@ void editBooks(Book books[], int countBooks, int &totalBooks, int &remainBooks)
             printPromptLine("Nhap vao thong tin can chinh sua: ");
             printf(">> ");
             scanf("%d", &choice);
-            cin.ignore();
+            // cin.ignore();
             switch (choice)
             {
             case 1:
@@ -122,6 +122,7 @@ void editBooks(Book books[], int countBooks, int &totalBooks, int &remainBooks)
                 // cin.getline(books[bookIndex].bookISBN, 20);
                 do
                 {
+                    cin.ignore();
                     cout << "ISBN moi: ";
                     char newISBN[20];
                     cin.getline(newISBN, 20);
@@ -140,18 +141,22 @@ void editBooks(Book books[], int countBooks, int &totalBooks, int &remainBooks)
                 } while (true);
                 break;
             case 2:
+                cin.ignore();
                 cout << "Tua de moi: ";
                 cin.getline(books[bookIndex].bookTitles, 100);
                 break;
             case 3:
+                cin.ignore();
                 cout << "Tac gia: ";
                 cin.getline(books[bookIndex].bookAuthor, 100);
                 break;
             case 4:
+                cin.ignore();
                 cout << "Nha xuat ban: ";
                 cin.getline(books[bookIndex].bookPublisher, 100);
                 break;
             case 5:
+                cin.ignore();
                 cout << "The loai: ";
                 cin.getline(books[bookIndex].bookGenres, 50);
                 break;
