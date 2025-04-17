@@ -40,7 +40,7 @@ int countBorrowedBooks(BookLoan bookloans[], int countLoan);
  * @param bookloans Mảng lưu trữ các phiếu mượn sách của độc giả
  * @param countLoan số lượng phiếu mượn sách
  */
-void listOverdueReaders(BookLoan bookLoans[], int countLoan);
+void listOverdueReaders(Reader readers[], int countReader, BookLoan bookLoans[], int countLoan);
 
 void countTotalBooksMenu(Book books[], int countBook);
 
@@ -49,4 +49,10 @@ void countBookByGenresMenu(Book books[], int countBook);
 void countReaderMenu(Reader readers[], int countReader);
 
 void countReaderByGenderMenu(Reader readers[], int countReader);
+
+void countBorrowedBooksMenu(Reader readers[], int countReader, BookLoan bookloans[], int countLoan);
+
+void listOverdueReadersMenu(Reader readers[], int countReader, BookLoan bookloans[], int countLoan);
+
+void displayActiveLoanReaders(Reader readers[], int countReader, BookLoan bookloans[], int countLoan);
 #endif

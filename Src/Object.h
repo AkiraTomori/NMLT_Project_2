@@ -71,6 +71,9 @@ struct Date
      */
     void addNDays(int days);
 
+    void minusOneDays();
+
+    void minusNDays(int days);
 };
 
 struct Reader

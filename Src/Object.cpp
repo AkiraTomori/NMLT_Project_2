@@ -123,6 +123,25 @@ void Date::addNDays(int days)
     for (int i = 1; i <= days; i++)
         addOneDays();
 }
+void Date::minusOneDays()
+{
+    int maxDays = getDaysInMonth(month, year);
+    this->day--;
+    if (this->day < 1)
+    {
+        this->day = maxDays;
+        if (this->month < 1)
+        {
+            this->month = 12;
+            year--;
+        }
+    }
+}
+void Date::minusNDays(int days)
+{
+    for (int i = 1; i <= days; i++)
+        minusOneDays();
+}
 Date::~Date() {}
 
 Reader::Reader()
