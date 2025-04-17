@@ -27,7 +27,7 @@ Reader createReader(const Reader readers[], int countReader)
         cin.getline(newReader.readerId, 20);
         if (isUniqueID(readers, countReader, newReader.readerId))
         {
-            cout << "Ma doc gia nay da ton tai. Xin hay nhap lai\n";
+            cout << "Ma doc gia nay da ton tai. Xin hay nhap lai.\n";
         }
         else
         {
@@ -132,30 +132,64 @@ void editReader(Reader readers[], int countReader)
             printf(">> ");
             scanf("%d", &choice);
 
-            cin.ignore();
+            // cin.ignore();
             switch (choice)
             {
             case 1:
+                cin.ignore();
                 cout << "Nhap ten moi: ";
                 cin.getline(readers[readerIndex].readerName, 100);
                 break;
             case 2:
-                cout << "Ma doc gia: ";
-                cin.getline(readers[readerIndex].readerId, 20);
+                do
+                {
+                    cin.ignore();
+                    cout << "Ma doc gia: ";
+                    char newId[20];
+                    cin.getline(newId, 20);
+                    if (strcmp(newId, readers[readerIndex].readerId) == 0) break;
+                    if (isUniqueID(readers, countReader, newId, readerIndex))
+                    {
+                        cout << "Ma doc gia nay da ton tai. Xin hay nhap lai.\n";
+                    }
+                    else{
+                        strcpy(readers[readerIndex].readerId, newId);
+                        break;
+                    }
+                } while (true);
+                
                 break;
             case 3:
-                cout << "CCCD: ";
-                cin.getline(readers[readerIndex].readerCCCD, 100);
+                do
+                {
+                    cin.ignore();
+                    cout << "CCCD: ";
+                    char newCCCD[100];
+                    cin.getline(newCCCD, 100);
+                    if (strcmp(readers[readerIndex].readerCCCD, newCCCD) == 0) break;
+                    if (isUniqueCCCD(readers, countReader, newCCCD, readerIndex))
+                    {
+                        cout << "Ma CCCD khong the trung. Xin hay nhap lai.\n";
+                    }
+                    else{
+                        strcpy(readers[readerIndex].readerCCCD, newCCCD);
+                        break;
+                    }
+                } while (true);
+                
                 break;
             case 4:
+                cin.ignore();
                 cout << "Mail: ";
                 cin.getline(readers[readerIndex].readerMail, 100);
                 break;
             case 5:
+                cin.ignore();
                 cout << "Dia chi moi: ";
                 cin.getline(readers[readerIndex].readerAddress, 100);
                 break;
             case 6:
+                cin.ignore();
                 cout << "Chinh sua gioi tinh: ";
                 cin.getline(readers[readerIndex].readerGender, 10);
                 break;

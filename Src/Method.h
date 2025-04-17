@@ -43,7 +43,7 @@ int FindReaderBasedOnId(Reader readers[], int countReader, char id[]);
  * @return false Nếu ID là duy nhất.
  * @return true Nếu ID đã tồn tại.
  */
-bool isUniqueID(const Reader readers[], int countReader, char inputID[]);
+bool isUniqueID(const Reader readers[], int countReader, char inputID[], int readerIndex = -1);
 
 /**
  * @brief Kiểm tra tính duy nhất của CCCD độc giả.
@@ -54,7 +54,7 @@ bool isUniqueID(const Reader readers[], int countReader, char inputID[]);
  * @return false Nếu CCCD là duy nhất.
  * @return true Nếu CCCD đã tồn tại.
  */
-bool isUniqueCCCD(const Reader readers[], int countReader, char inputCCCD[]);
+bool isUniqueCCCD(const Reader readers[], int countReader, char inputCCCD[], int readerIndex = -1);
 
 // Book.h
 /**
@@ -86,7 +86,7 @@ int FindBookBasedOnTitle(Book books[], int countBook, char bookTitle[]);
  * @return false Nếu ISBN là duy nhất.
  * @return true Nếu ISBN đã tồn tại.
  */
-bool isUniqueISBN(const Book books[], int countBook, char inputISBN[]);
+bool isUniqueISBN(const Book books[], int countBook, char inputISBN[], int bookIndex = -1);
 
 // BookLoan.h
 /**

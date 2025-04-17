@@ -118,8 +118,26 @@ void editBooks(Book books[], int countBooks, int &totalBooks, int &remainBooks)
             switch (choice)
             {
             case 1:
-                cout << "ISBN moi: ";
-                cin.getline(books[bookIndex].bookISBN, 20);
+                // cout << "ISBN moi: ";
+                // cin.getline(books[bookIndex].bookISBN, 20);
+                do
+                {
+                    cout << "ISBN moi: ";
+                    char newISBN[20];
+                    cin.getline(newISBN, 20);
+                    string formattedISBN = formatISBN(string(newISBN));
+                    if (strcmp(books[bookIndex].bookISBN, formattedISBN.c_str()) == 0) break;
+                    strcpy(newISBN, formattedISBN.c_str());
+                    if (isUniqueISBN(books, countBooks, newISBN, bookIndex))
+                    {
+                        cout << "Ma ISBN nay da ton tai. Xin hay nhap lai.\n";
+                    }
+                    else
+                    {
+                        strcpy(books[bookIndex].bookISBN, newISBN);
+                        break;
+                    }
+                } while (true);
                 break;
             case 2:
                 cout << "Tua de moi: ";

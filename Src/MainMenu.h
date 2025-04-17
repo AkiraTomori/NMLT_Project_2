@@ -7,7 +7,7 @@
 #include "getData.h"
 
 /**
- * @brief Hiển thị thời gian thực và gọi các chức năng thống kê khi chương trình khởi động.
+ * @brief Thực thi chương trình chính .
  * 
  * @param reader Mảng độc giả.
  * @param countReaders Số lượng độc giả.

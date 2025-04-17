@@ -42,10 +42,11 @@ int FindReaderBasedOnId(Reader readers[], int countReader, char id[])
     return index;
 }
 
-bool isUniqueID(const Reader readers[], int countReader, char inputID[])
+bool isUniqueID(const Reader readers[], int countReader, char inputID[], int readerIndex)
 {
     bool isFound = false;
     for (int i = 0; i < countReader; i++){
+        if (i == readerIndex) continue;
         Reader presentReader = readers[i];
         // Nếu tìm ra ID trong danh sách thì không được phép, trả về true
         if (strcmp(presentReader.readerId, inputID) == 0){
@@ -56,10 +57,11 @@ bool isUniqueID(const Reader readers[], int countReader, char inputID[])
     return isFound;
 }
 
-bool isUniqueCCCD(const Reader readers[], int countReader, char inputCCCD[])
+bool isUniqueCCCD(const Reader readers[], int countReader, char inputCCCD[], int readerIndex)
 {
     bool isFound = false;
     for (int i = 0; i < countReader; i++){
+        if (i == readerIndex) continue;
         Reader presentReader = readers[i];
         // Nếu tìm ra CCCD trong danh sách thì không được phép, trả về true
         if (strcmp(presentReader.readerCCCD, inputCCCD) == 0){
@@ -99,9 +101,10 @@ int FindBookBasedOnTitle(Book books[], int countBook, char bookTitle[])
     return index;
 }
 
-bool isUniqueISBN(const Book books[], int countBook, char inputISBN[]){
+bool isUniqueISBN(const Book books[], int countBook, char inputISBN[], int bookIndex){
     bool isFound = false;
     for (int i = 0; i < countBook; i++){
+        if (i == bookIndex) continue;
         Book presentBook = books[i];
         // Nếu đã tồn tại ISBN trước đó thì không được phép, trả về true
         if (strcmp(presentBook.bookISBN, inputISBN) == 0){
