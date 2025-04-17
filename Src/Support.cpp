@@ -75,9 +75,9 @@ string formatISBN(const string &rawISBN)
     formattedISBN += "-";
     formattedISBN += rawISBN.substr(3, 3); // Group: 604
     formattedISBN += "-";
-    formattedISBN += rawISBN.substr(6, 2); // Publisher: 96
+    formattedISBN += rawISBN.substr(6, 3); // Publisher: 96
     formattedISBN += "-";
-    formattedISBN += rawISBN.substr(8, 4); // Title: 3817
+    formattedISBN += rawISBN.substr(9, 3); // Title: 3817
     formattedISBN += "-";
     formattedISBN += rawISBN.substr(12, 1);
 
