@@ -142,9 +142,15 @@ void returnBooks(Reader readers[], int countReader, Book books[], int countBook,
         int bookIndex = FindBookBasedOnISBN(books, countBook, bookloans[loanIndex].loanBooks[j]);
         if (lost == 1)
         {
-            printf("So luong sach bi mat la: ");
             int lostbook = 0;
-            scanf("%d", &lostbook);
+            do{
+                printf("So luong sach bi mat (toi da %d) la: ", bookloans[loanIndex].loanBookQuantities[j]);
+                scanf("%d", &lostbook);
+                if (lostbook > bookloans[loanIndex].loanBookQuantities[j] || lostbook < 0)
+                {
+                    printf("So luong sach bi mat khong hop le. Xin hay nhap lai.\n");
+                }
+            } while (lostbook > bookloans[loanIndex].loanBookQuantities[j] || lostbook < 0);
             int fine = books[bookIndex].bookPrices * 2 * lostbook;
             totalFine += fine;
             printf("Doc gia bi phat: %d vi lam mat sach. \n", fine);

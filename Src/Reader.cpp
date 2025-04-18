@@ -55,8 +55,27 @@ Reader createReader(const Reader readers[], int countReader)
     cout << "Dia chi: ";
     cin.getline(newReader.readerAddress, 100);
 
-    cout << "Gioi tinh: ";
-    cin.getline(newReader.readerGender, 10);
+    // cout << "Gioi tinh: ";
+    // cin.getline(newReader.readerGender, 10);
+    do
+    {
+        cout << "Gioi tinh: ";
+        cin.getline(newReader.readerGender, 10);
+        for (int i = 0; newReader.readerGender[i]; i++)
+        {
+            newReader.readerGender[i] = tolower(newReader.readerGender[i]);
+        }
+        if (strcmp(newReader.readerGender, "nam") == 0 || strcmp(newReader.readerGender, "nu") == 0)
+        {
+            // Viết hoa chữ cái đầu nếu cần
+            newReader.readerGender[0] = toupper(newReader.readerGender[0]);
+            break;
+        }
+        else
+        {
+            cout << "Gioi tinh khong hop le.\n";
+        }
+    } while (true);
 
     cout << "Ngay thang nam sinh (theo dd/mm/yyyy): \n";
     cin >> newReader.readerBirthday;
@@ -147,17 +166,19 @@ void editReader(Reader readers[], int countReader)
                     cout << "Ma doc gia: ";
                     char newId[20];
                     cin.getline(newId, 20);
-                    if (strcmp(newId, readers[readerIndex].readerId) == 0) break;
+                    if (strcmp(newId, readers[readerIndex].readerId) == 0)
+                        break;
                     if (isUniqueID(readers, countReader, newId, readerIndex))
                     {
                         cout << "Ma doc gia nay da ton tai. Xin hay nhap lai.\n";
                     }
-                    else{
+                    else
+                    {
                         strcpy(readers[readerIndex].readerId, newId);
                         break;
                     }
                 } while (true);
-                
+
                 break;
             case 3:
                 do
@@ -166,17 +187,19 @@ void editReader(Reader readers[], int countReader)
                     cout << "CCCD: ";
                     char newCCCD[100];
                     cin.getline(newCCCD, 100);
-                    if (strcmp(readers[readerIndex].readerCCCD, newCCCD) == 0) break;
+                    if (strcmp(readers[readerIndex].readerCCCD, newCCCD) == 0)
+                        break;
                     if (isUniqueCCCD(readers, countReader, newCCCD, readerIndex))
                     {
                         cout << "Ma CCCD khong the trung. Xin hay nhap lai.\n";
                     }
-                    else{
+                    else
+                    {
                         strcpy(readers[readerIndex].readerCCCD, newCCCD);
                         break;
                     }
                 } while (true);
-                
+
                 break;
             case 4:
                 cin.ignore();
@@ -189,9 +212,25 @@ void editReader(Reader readers[], int countReader)
                 cin.getline(readers[readerIndex].readerAddress, 100);
                 break;
             case 6:
-                cin.ignore();
-                cout << "Chinh sua gioi tinh: ";
-                cin.getline(readers[readerIndex].readerGender, 10);
+                do
+                {
+                    cin.ignore();
+                    cout << "Chinh sua gioi tinh: ";
+                    cin.getline(readers[readerIndex].readerGender, 10);
+                    for (int i = 0; readers[readerIndex].readerGender[i]; i++)
+                    {
+                        readers[readerIndex].readerGender[i] = tolower(readers[readerIndex].readerGender[i]);
+                    }
+                    if (strcmp(readers[readerIndex].readerGender, "nam") == 0 || strcmp(readers[readerIndex].readerGender, "nu") == 0)
+                    {
+                        // Viết hoa chữ cái đầu
+                        readers[readerIndex].readerGender[0] = toupper(readers[readerIndex].readerGender[0]);
+                        break;
+                    }
+                    else{
+                        cout << "Gioi tinh khong hop le.\n";
+                    }
+                } while (true);
                 break;
             case 7:
                 cout << "Chinh sua ngay sinh: \n";

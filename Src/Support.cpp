@@ -117,7 +117,7 @@ void printBookQuantityHeader()
 
 void printBookQuantityRow(const char title[], int quantity)
 {
-    printf("| %-30s | %6d |\n", title, quantity);
+    printf("| %-30s | %6d  |\n", title, quantity);
 }
 
 void printBookQuantityFooter()
